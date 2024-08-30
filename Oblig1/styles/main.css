@@ -7,19 +7,37 @@ html{
   background-color: var(--background);
   font-family: var(--font);
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+header{
+  height: 400px;
+  width: 100%;
+  background-color: peru;
 }
 
 #memberSection{
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  justify-content: center;
+  padding: 1rem;
+  color: white;
 
   h1{
     font-size: 3rem;
+    margin-top: .4rem;
   }
   
 
@@ -30,18 +48,32 @@ html{
   }
 }
 
+.block{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
 #articleSection{
   display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 1rem;
+
   flex: wrap;
 
   padding-top: 3rem;
 
   article{
-    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3f3f3;
     padding: 0.7rem;
     border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+
+    height: 250px;
+
 
     h2{
       padding: 0.2rem;
@@ -49,5 +81,4 @@ html{
     }
 
   }
-
 }
