@@ -33,15 +33,19 @@ header{
   
   
 }
+
 footer{
-  height: 400px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 1rem;
   background-color: peru;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  flex: wrap;
   border-radius: 10px;
+  padding-top: 3rem;
   
 }
-
 #memberSection{
   display: flex;
   flex-direction: column;
