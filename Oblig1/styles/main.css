@@ -26,6 +26,20 @@ header{
   height: 400px;
   width: 100%;
   background-color: peru;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  
+  
+  
+  
+}
+footer{
+  height: 400px;
+  width: 100%;
+  background-color: peru;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  
 }
 
 #memberSection{
@@ -34,13 +48,13 @@ header{
   gap: .5rem;
   padding: 1rem;
   color: white;
-
+  
   h1{
     font-size: 3rem;
     margin-top: .4rem;
   }
   
-
+  
   ul{
     list-style-type: none;
     padding: 0;
@@ -80,5 +94,6 @@ header{
       margin: 0;
     }
 
+    
   }
 }
