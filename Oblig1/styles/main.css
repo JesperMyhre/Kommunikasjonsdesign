@@ -3,12 +3,15 @@
   --font: "ubuntu", "sans-serif";
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html{
   background-color: var(--background);
   font-family: var(--font);
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 
   display: flex;
   justify-content: center;
@@ -81,4 +84,14 @@ header{
     }
 
   }
+}
+
+footer{
+  background-color: peru;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
