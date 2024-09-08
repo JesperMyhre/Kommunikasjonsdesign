@@ -1,10 +1,5 @@
-:root{
-  --background: #f1f1f1;
-  --font: "ubuntu", "sans-serif";
-}
-
 html{
-  background-color: var(--background);
+  background-color: var(--background-primary);
   font-family: var(--font);
   box-sizing: border-box;
   margin: 0;
@@ -15,6 +10,14 @@ html{
   position: relative;
 }
 
+header{
+  height: 400px;
+  width: 100%;
+  background-color: #023047;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -22,17 +25,27 @@ body{
   max-width: 1200px;
 }
 
-header{
-  height: 400px;
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: #023047;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  
-  
-  
+  z-index: 1000;
+  background-color: var(--background-secondary);
+
+  ul li{
+    list-style-type: none;
+    a{
+      color: white;
+      text-decoration: none;
+    }
+  }
   
 }
+
+
+
+
 
 footer{
   display: flex;
