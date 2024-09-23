@@ -45,6 +45,7 @@
   cursor: pointer;
   border: none;
   border-radius: 10px;
+  z-index: 9999;
 }
 
 #overlay {
