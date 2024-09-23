@@ -46,3 +46,12 @@
   border: none;
   border-radius: 10px;
 }
+
+#overlay {
+  position: absolute;
+  top: 35rem;
+  width: 11rem;
+  height: 40vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
