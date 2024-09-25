@@ -1,3 +1,63 @@
+html {
+  background-color: var(--background-primary);
+  font-family: var(--font);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+header {
+  width: auto;
+  background-color: #023047;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+body {
+  margin: 0;
+  padding: 0 0 100px 0;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+p{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+
+#bannerContainer {
+  width: auto;
+  height: 500px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.land {
+  fill: red;
+  fill-opacity: 1;
+  stroke: white;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center center;
+}
+
 #map-container {
   position: absolute;
   width: 100%;
@@ -8,19 +68,21 @@
   position: relative;
   width: 100%;
   height: 100%;
+  left: 45rem;
   transition: transform 1s ease-in-out;
 }
 
-#zoom-out{
+#zoom-out {
   position: sticky;
   background-color: black;
   color: white;
   width: 75px;
-  height:30px;
+  height: 30px;
   cursor: pointer;
   border: none;
   border-radius: 10px;
   z-index: 9999;
+  left: 45rem;
 }
 
 #overlay {
