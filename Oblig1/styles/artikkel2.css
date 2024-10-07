@@ -5,6 +5,7 @@ body {
 }
 
 #map-container {
+  display: flex;
   position: absolute;
   width: 100%;
   height: 100vh;
@@ -16,6 +17,7 @@ body {
   width: 100%;
   height: 100%;
   transition: transform 1s ease-in-out;
+ 
 }
 
 .land {
@@ -23,6 +25,8 @@ body {
   stroke: white;
   stroke-width: 0.5;
   cursor: pointer;
+  align-items: center;
+ 
 }
 
 #zoom-out {
