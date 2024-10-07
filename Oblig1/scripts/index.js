@@ -75,16 +75,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Startvisning på første område uten overlay
   overlay.style.display = "none"; // Skjul overlay ved start
-
-  // Legg til funksjonalitet for å tilbakestille zoom og skjule overlay når man trykker på "zoom-out"
-  document.getElementById("zoom-out").addEventListener("click", () => {
-    // Tilbakestill scroll og visning
-    currentZoom = 1; // Tilbakestill zoomnivå
-    translateY = 0; // Tilbakestill vertikal forskyvning
-    updateMapCenter(); // Oppdater horisontal forskyvning for midtstilt kart
-    map.style.transition = "transform 0.5s ease"; // Legg til jevn overgang for tilbakestilling
-    map.style.transform = `scale(1) translate(${mapCenterX}px, 0px)`;
-    overlay.style.display = "none"; // Skjul overlay
-    currentIndex = 0; // Tilbakestill indeks til startposisjon
-  });
 });

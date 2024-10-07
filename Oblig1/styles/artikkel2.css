@@ -29,18 +29,7 @@ body {
  
 }
 
-#zoom-out {
-  position: sticky;
-  background-color: black;
-  color: white;
-  width: 75px;
-  height: 30px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  z-index: 9999;
-  left: 45rem;
-}
+
 
 #overlay {
   position: absolute;
