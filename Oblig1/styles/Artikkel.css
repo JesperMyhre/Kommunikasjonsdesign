@@ -50,6 +50,7 @@
     margin: 0 auto 100px auto;
     width: 65%;
     min-width: 560px;
+    max-width: 900px;
   }
 
   #articleContainer{
