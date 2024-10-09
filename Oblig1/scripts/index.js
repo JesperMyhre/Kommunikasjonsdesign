@@ -18,25 +18,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleScroll(event) {
     // Oppdaterer currentIndex basert på scroll-retning
-    currentIndex = (event.deltaY > 0)
+    currentIndex = event.deltaY > 0
       ? (currentIndex + 1) % landElements.length // Neste område hvis scroller ned
       : (currentIndex - 1 + landElements.length) % landElements.length; // Forrige område hvis scroller opp
     focusArea(currentIndex); // Fokuserer på det nye området
   }
 
-  function throttle(func, limit) {
+  // Legger til en wheel-event listener med throttling
+  document.addEventListener("wheel", (() => {
     let inThrottle;
-    return function() {
+    return function(event) {
       if (!inThrottle) {
-        func.apply(this, arguments); // Kaller funksjonen hvis ikke throttlet
+        handleScroll(event);
         inThrottle = true;
-        setTimeout(() => (inThrottle = false), limit); // Setter en timeout for throttling
+        setTimeout(() => (inThrottle = false), 300);
       }
     };
-  }
+  })());
 
-  // Legger til en wheel-event listener med throttling
-  document.addEventListener("wheel", throttle(handleScroll, 300));
+  // Legger til klikk-event listeners på hvert land-element
+  landElements.forEach((el, index) => {
+    el.addEventListener('click', () => {
+      currentIndex = index; // Oppdaterer currentIndex til det klikkede området
+      focusArea(currentIndex); // Fokuserer på det klikkede området
+    });
+  });
 
   overlay.style.display = "none"; // Skjuler overlay ved start
 });
