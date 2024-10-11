@@ -22,6 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
       currentIndex = index; // Oppdaterer currentIndex til det klikkede området
       focusArea(currentIndex); // Fokuserer på det klikkede området
     });
+
+    // Legger til hover-effekt
+    el.addEventListener('mouseover', () => {
+      el.style.fill = "blue"; // Endrer farge ved hover
+    });
+
+    el.addEventListener('mouseout', () => {
+      el.style.fill = index === currentIndex ? "blue" : "red"; // Tilbakestiller farge ved mouseout
+    });
   });
 
   overlay.style.display = "none"; // Skjuler overlay ved start

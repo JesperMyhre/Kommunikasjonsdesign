@@ -23,6 +23,16 @@
    
   }
 
+  #articleContainer img {
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #articleContainer img:hover {
+    transform: scale(1.05);
+  }
+
+
   #bannerContainer{
     width: 100%;
     height: 500px;
@@ -64,6 +74,7 @@
     img{
       max-width: 100%;
     }
+    
   }
   
   p{
