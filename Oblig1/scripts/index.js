@@ -16,26 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.innerHTML = `<p>Du ser på: ${landElements[index].getAttribute("title")}</p>`;
   }
 
-  function handleScroll(event) {
-    // Oppdaterer currentIndex basert på scroll-retning
-    currentIndex = event.deltaY > 0
-      ? (currentIndex + 1) % landElements.length // Neste område hvis scroller ned
-      : (currentIndex - 1 + landElements.length) % landElements.length; // Forrige område hvis scroller opp
-    focusArea(currentIndex); // Fokuserer på det nye området
-  }
-
-  // Legger til en wheel-event listener med throttling
-  document.addEventListener("wheel", (() => {
-    let inThrottle;
-    return function(event) {
-      if (!inThrottle) {
-        handleScroll(event);
-        inThrottle = true;
-        setTimeout(() => (inThrottle = false), 300);
-      }
-    };
-  })());
-
   // Legger til klikk-event listeners på hvert land-element
   landElements.forEach((el, index) => {
     el.addEventListener('click', () => {
