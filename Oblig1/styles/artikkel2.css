@@ -147,9 +147,9 @@ p {
 
 /* Overlay-informasjon */
 #overlay {
-  top: auto;
+  position: absolute;
+  top: 20px;
   left: 50px;
-  right: 1rem;
   width: 300px;
   height: 200px;
   background-color: rgba(0, 0, 0, 0.7);
