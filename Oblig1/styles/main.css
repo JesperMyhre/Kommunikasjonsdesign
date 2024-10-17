@@ -93,6 +93,11 @@ footer {
   padding-top: 3rem;
 }
 
+#articleSection article a video{
+  width: 100%;
+  height: 100%;
+}
+
 #articleSection article {
   display: flex;
   justify-content: space-between;
