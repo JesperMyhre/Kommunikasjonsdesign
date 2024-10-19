@@ -7,13 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function focusArea(index) {
     // Oppdaterer fargene på områdene
     landElements.forEach((el, i) => {
-      el.style.fill = i === index ? "blue" : "red"; // Setter valgt område til blå, resten til rød
+      el.style.fill = i === index ? "#f5f5f5" : "hsl(0, 0%, 14%)"; // Setter valgt område til blå, resten til rød
     });
-    // Viser overlay med informasjon om det valgte området
+/*     // Viser overlay med informasjon om det valgte området
     overlay.style.display = "block";
-    overlay.style.left = "10px";
-    overlay.style.top = "10px";
-    overlay.innerHTML = `<p>Du ser på: ${landElements[index].getAttribute("title")}</p>`;
+    overlay.innerHTML = `<p>Du ser på: ${landElements[index].getAttribute("title")}</p>`; */
   }
 
   // Legger til klikk-event listeners på hvert land-element
@@ -25,11 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Legger til hover-effekt
     el.addEventListener('mouseover', () => {
-      el.style.fill = "blue"; // Endrer farge ved hover
+      el.style.fill = "#f5f5f5"; // Endrer farge ved hover
+      overlay.style.display = "block";
+      const infoArray = JSON.parse(el.getAttribute("data-info")); // Parse JSON string to array
+      overlay.innerHTML = ` <h3>${el.getAttribute("title")}</h3>
+                            <p>${infoArray.join("<br>")}</p>`; // Display array items in overlay
     });
 
     el.addEventListener('mouseout', () => {
-      el.style.fill = index === currentIndex ? "blue" : "red"; // Tilbakestiller farge ved mouseout
+      el.style.fill = index === currentIndex ? "#f5f5f5" : "hsl(0, 0%, 14%)"; // Tilbakestiller farge ved mouseout
     });
   });
 
