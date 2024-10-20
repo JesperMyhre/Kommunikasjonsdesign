@@ -1,28 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const characters = [
+  const stories = [
     {
       videoSrc: "./media/0001-0359.webm",
-      header: "Character 1"
+      header: "Parkeringskrise",
+      href: "./Artikkel1.html"
     },
     {
       videoSrc: "./media/0001-0359.webm",
-      header: "Character 2"
+      header: "Henlagte saker",
+      href: "./Artikkel2.html"
     },
     {
       videoSrc: "./media/0001-0359.webm",
-      header: "Character 3"
+      header: "TBA",
+      href: "./Artikkel3.html"
+    },
+    {
+      videoSrc: "./media/0001-0359.webm",
+      header: "TBA",
+      href: "./Artikkel4.html"
     }
   ];
 
   let currentIndex = 0;
 
-  const characterVideo = document.getElementById("characterVideo");
-  const characterHeader = document.getElementById("characterHeader");
+  const storyScroll = document.getElementById("storyScroll");
+  const storyHeader = document.getElementById("storyHeader");
   const dotsContainer = document.getElementById("dotsContainer");
+  const selectButton = document.getElementById("selectBTN");
 
-  function updateCharacter(index) {
-    characterVideo.src = characters[index].videoSrc;
-    characterHeader.textContent = characters[index].header;
+  function updateStory(index) {
+    storyScroll.style.transform = `translateX(-${index * 600}px)`;
+    storyHeader.textContent = stories[index].header;
     updateDots(index);
   }
 
@@ -33,26 +42,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  characters.forEach((_, index) => {
+  stories.forEach((_, index) => {
     const dot = document.createElement("div");
     dot.classList.add("dot");
     if (index === 0) dot.classList.add("active");
     dot.addEventListener("click", () => {
       currentIndex = index;
-      updateCharacter(currentIndex);
+      updateStory(currentIndex);
     });
     dotsContainer.appendChild(dot);
   });
 
   document.getElementById("prevButton").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
-    updateCharacter(currentIndex);
+    currentIndex = (currentIndex - 1 + stories.length) % stories.length;
+    updateStory(currentIndex);
   });
 
   document.getElementById("nextButton").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % characters.length;
-    updateCharacter(currentIndex);
+    currentIndex = (currentIndex + 1) % stories.length;
+    updateStory(currentIndex);
+  });
+  
+  selectButton.addEventListener("click", () => {
+    window.location.href = stories[currentIndex].href;
   });
 
-  updateCharacter(currentIndex);
+  updateStory(currentIndex);
 });
