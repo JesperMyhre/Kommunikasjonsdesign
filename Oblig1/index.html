@@ -24,46 +24,22 @@
     </header>
     <main>
       <h1>KOMMUNIKASJONSDESIGN</h1>
-
-      <section id="articleSection">
-        <a href="./Artikkel1.html">
-          <section class="articleContainer">
-            <video src="./media/0001-0359.webm" autoplay loop muted></video>
-            <div>
-              <h2>Parkeringskrise</h2>
-              <p>
-                Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-                ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-              </p>
-            </div>
-          </section>
-        </a>
-        <a href="./Artikkel2.html">
-          <section class="articleContainer">
-            <video src="./media/0001-0359.webm" autoplay loop muted></video>
-            <div>
-              <h2>Parkeringskrise</h2>
-              <p>
-                Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-                ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-              </p>
-            </div>
-          </section>
-        </a>
-        <a href="./Artikkel3.html">
-          <section class="articleContainer">
-            <video src="./media/0001-0359.webm" autoplay loop muted></video>
-            <div>
-              <h2>Parkeringskrise</h2>
-              <p>
-                Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-                ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-              </p>
-            </div>
-          </section>
-        </a>
-      </section>
+      <h1 id="characterHeader">Character 1</h1>
+      <div id="characterSelection">
+        <button id="prevButton" class="navButton">&lt;</button>
+        <div id="characterContainer">
+          <video
+            id="characterVideo"
+            src="./media/0001-0359.webm"
+            autoplay
+            loop
+            muted
+          ></video>
+        </div>
+        <button id="nextButton" class="navButton">&gt;</button>
+      </div>
+      <div id="dotsContainer"></div>
     </main>
   </body>
-  <script src="./scripts/index.js"></script>
+  <script src="./scripts/home.js"></script>
 </html>
