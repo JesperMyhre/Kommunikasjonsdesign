@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay"); // Henter overlay-elementet
   const landElements = Array.from(document.querySelectorAll(".land")); // Henter alle land-elementer
+  const navElement = document.getElementById("nav");
 
   let currentIndex = 0; // Indeksen til det nåværende området
   let isAreaSelected = false; // Flagg for å spore om et område er valgt
@@ -57,4 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   overlay.style.display = "none"; // Skjuler overlay ved start
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navElement.classList.add("navScroll");
+    } else {
+      navElement.classList.remove("navScroll");
+    }
+  });
 });
