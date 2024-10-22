@@ -9,9 +9,10 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  max-width: 900px;
-  color: white;
-  background-color: var(--background-secondary);
+  max-width: 1200px;
+  color: #333;
+  background-color: #f0f8ff; 
+  font-family: 'Ubuntu', sans-serif;
 }
 
 main {
@@ -119,6 +120,35 @@ h1, h2 {
   transition: background-color 0.5s ease-in-out;
 }
 
+/* Responsive  */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #storyContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  #storyContainer {
+    width: 95%;
+  }
+
+}
 /* footer {
   display: flex;
   flex-direction: column;
