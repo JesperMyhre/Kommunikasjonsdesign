@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       videoSrc: "./media/0001-0359.webm",
-      header: "TBA",
+      header: "Økonomikrisen rammer studentene",
       href: "./Artikkel3.html"
     },
     {
       videoSrc: "./media/0001-0359.webm",
-      header: "TBA",
+      header: "Rusproblematikk Blant Studenter",
       href: "./Artikkel4.html"
     }
   ];
