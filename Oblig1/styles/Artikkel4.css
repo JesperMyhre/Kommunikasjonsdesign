@@ -7,28 +7,6 @@ body {
 }
 
 
-
-.bannerText:hover {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.bannerText h2 {
-    margin: 0;
-    font-size: 2rem;
-}
-
-.bannerText p {
-    margin: 0.5rem 0 0 0;
-    font-size: 1rem;
-}
-
-
 article {
     padding: 20px;
     max-width: 800px;
