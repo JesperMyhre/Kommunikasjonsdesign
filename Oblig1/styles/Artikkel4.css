@@ -99,7 +99,7 @@ article {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: white;
-    cursor: url('path/to/smoke-cursor.png'), auto; /* Endrer musepekeren til en røykeffekt */
+   
 }
 
 article h1 {
