@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0 0 100px 0;
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: black;
+}
+
+/* Definerer fade-in animasjonen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scroll-seksjoner med Parallax-effekt */
+.scroll-box {
+    height: 100vh; /* Fullskjerm */
+    min-height: 100vh; /* Sikrer at det alltid dekker skjermen */
+    background-size: cover; /* Bildet dekker hele skjermen */
+    background-repeat: no-repeat; /* Hindrer at bildet gjentar seg */
+    background-position: center; /* Sentrerer bildet */
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    margin-bottom: 50px; /* Mellomrom mellom seksjonene */
+}
+
+/* Faded-out effekt for jevn overgang */
+.scroll-box.fade-out {
+    opacity: 0; /* Bakgrunnens opacity for smooth overgang */
+}
+
+/* Innhold */
+.scroll-box .content {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    max-width: 100%;
+    animation: fadeIn 1.5s ease-out; /* Animasjon for fade-in */
+    opacity: 0; /* Start med å være usynlig */
+    animation-fill-mode: forwards; /* Beholder sluttstatusen til animasjonen */
+}
+
+.scroll-box .content h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.scroll-box .content p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Legg til mellomrom mellom bilder */
+article img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px; /* Legg til ekstra margin nederst */
+}
+
+
+/* Stil for røykpartiklene */
+.smoke-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    pointer-events: none; /* Ikke la partiklene påvirke museklikk */
+    animation: float 2s ease-out forwards; /* Flyter oppover og forsvinner */
+    z-index: 9999;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+
+article {
+    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    background: black; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+   
+}
+
+article h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white; 
+    border-bottom: 2px solid #023047;
+    padding-bottom: 10px;
+}
+
+article p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: white; 
+    line-height: 1.6;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    article {
+        padding: 15px;
+    }
+
+    article h1 {
+        font-size: 2rem;
+    }
+
+    article p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    article {
+        padding: 10px;
+    }
+
+    article h1 {
+        font-size: 1.5rem;
+    }
+
+    article p {
+        font-size: 0.9rem;
+    }
+}
