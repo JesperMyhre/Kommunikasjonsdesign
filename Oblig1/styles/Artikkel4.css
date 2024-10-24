@@ -5,7 +5,57 @@ body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #383838;
 }
+/* Scroll-seksjoner med Parallax-effekt */
+.scroll-box {
+    height: 100vh; /* Fullskjerm */
+    min-height: 100vh; /* Sikrer at det alltid dekker skjermen */
+    background-size: cover; /* Bildet dekker hele skjermen */
+    background-repeat: no-repeat; /* Hindrer at bildet gjentar seg */
+    background-position: center; /* Sentrerer bildet */
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    margin-bottom: 50px; /* Mellomrom mellom seksjonene */
+}
 
+/* Faded-out effekt for jevn overgang */
+.scroll-box.fade-out {
+    opacity: 0; /* Bakgrunnens opacity for smooth overgang */
+}
+
+/* Innhold */
+.scroll-box .content {
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    max-width: 100%;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.scroll-box .content h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.scroll-box .content p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+
+/* Legg til mellomrom mellom bilder */
+article img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px; /* Legg til ekstra margin nederst */
+}
 
 article {
     padding: 20px;
