@@ -58,7 +58,7 @@ h2 {
 }
 
 #storyContainer {
-  width: 100%;
+  width: 600px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -71,7 +71,8 @@ h2 {
 }
 
 .storyVideo {
-  width: 100%;
+  width: 600px;
+  height: 400px;
   height: auto;
   border-radius: 10px;
 }
