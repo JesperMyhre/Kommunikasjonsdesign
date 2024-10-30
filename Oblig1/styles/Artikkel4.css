@@ -39,13 +39,14 @@ body {
 /* Innhold */
 .scroll-box .content {
     background: rgba(255, 255, 255, 0.8);
-    width: 100%;
+    width: 50%;
     padding: 20px;
     text-align: center;
     max-width: 100%;
     animation: fadeIn 1.5s ease-out; /* Animasjon for fade-in */
     opacity: 0; /* Start med å være usynlig */
     animation-fill-mode: forwards; /* Beholder sluttstatusen til animasjonen */
+    border-radius: 10px;
 }
 
 .scroll-box .content h1 {
