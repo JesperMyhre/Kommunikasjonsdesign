@@ -29,7 +29,6 @@ body {
     align-items: center;
     position: relative;
     transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    margin-bottom: 50px; /* Mellomrom mellom seksjonene */
 }
 
 /* Faded-out effekt for jevn overgang */
