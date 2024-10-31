@@ -29,7 +29,9 @@ header {
   position: fixed;
   overflow: hidden;
   scroll-snap-align: start;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/Bilde1.jpg");
+  
+  /* Henter bilde fra https://hiof-my.sharepoint.com/:w:/r/personal/chelseam_hiof_no/_layouts/15/Doc.aspx?sourcedoc=%7B56C5E601-BEBE-4F25-926D-F50C34FA6C82%7D&file=arbeidskrav%202%20popo.docx&action=default&mobileredirect=true */
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/Bilde\ 22.jpg");
 
   z-index: -1;
 
