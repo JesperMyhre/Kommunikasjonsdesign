@@ -110,31 +110,22 @@ header {
 }
 
 .infoContainerWide{
+  padding-top: 500px;
   position: absolute;
   left: 0;
   right: 0;
-  top: 1200px;
-
-  height: 400px;
+  top: 900px;
+  height: 6000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50rem;
 }
 
 .infoContainerSmall{
   padding: .3rem 1rem;
   margin: 0 auto;
   width: 550px;
-  position: absolute;
-}
-#containerOne{
-  left: 150px;
-  top: 700px;
-}
-#containerTwo{
-  right: 150px;
-  top: 1000px;
-}
-#containerThree{
-  left: 150px;
-  top: 1300px;
 }
 
 
@@ -186,7 +177,7 @@ p {
 
 
   position: absolute;
-  top: 1700px;
+  top: 5000px;
   left: 0;
 }
 
