@@ -1,72 +1,16 @@
-/* #articleSection article:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-color: #e0e0e0;
-} */
-
-html {
-  margin-top: 10px;
-}
-
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  max-width: 1200px;
+  height: 100%; /* Full høyde */
   color: #333;
   background-color: #f5f5f5; /* Softer background color */
   font-family: 'Ubuntu', sans-serif; /* Bruker Ubuntu font */
 }
 
-main {
+body {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 0 1rem;
-  padding-top: 3rem;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-
-h1, h2 {
-  font-family: 'Ubuntu', sans-serif; /* Bruker Ubuntu font */
-  font-weight: 700; /* Tykkere fontvekt */
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  color: #333; /* Mørkere tekstfarge */
-  border-bottom: 2px solid #ddd; /* Lysere grense */
-}
-
-h1 {
-  font-size: 2.5rem; /* Mindre fontstørrelse */
-  color: #ffffff; /* Hvit farge for h1 */
-  text-align: center; /* Sentrerer teksten */
-  text-transform: uppercase; /* Gjør teksten til store bokstaver */
-  letter-spacing: 2px; /* Øker bokstavavstanden */
-}
-
-h2 {
-  font-size: 1.8rem; /* Mindre fontstørrelse */
-}
-
-a {
-  color: inherit; /* Arver fargen fra foreldreelementet */
-  text-decoration: none; /* Fjerner understrekning */
-}
-
-a:hover {
-  text-decoration: underline; /* Understreker ved hover */
-}
-
-#storySelection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
 }
 
 header {
@@ -76,11 +20,82 @@ header {
   text-align: center;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+main {
+  flex: 1; /* Fyller tilgjengelig plass */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 2rem; /* Øker margin for å gi mer luft rundt elementene */
+  padding-top: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 1400px; /* Øker maksimal bredde for hovedinnholdet */
+}
+
 .article-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 10rem; /* Øker gapet mellom artiklene */
+  gap: 2rem; /* Øker gapet mellom artiklene */
   padding: 1rem;
+  width: 75%; /* Øker bredden på artikkel-listen */
+}
+
+.sidebar {
+  width: 25%; /* Justerer bredden på sidebaren */
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-left: 1px solid #ddd;
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.ad {
+  background-color: #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.article-link {
+  text-decoration: none; /* Fjerner understrekning */
+  color: inherit; /* Arver fargen fra foreldreelementet */
 }
 
 .article-item {
@@ -91,11 +106,17 @@ header {
   transition: transform 0.2s;
   background-color: #fff; /* Hvit bakgrunn */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lett skygge */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Fyller tilgjengelig høyde */
+  min-height: 300px; /* Minimum høyde for artikler */
 }
 
 .article-item img, .article-item video {
   max-width: 100%;
   height: auto;
+  object-fit: cover; /* Fyller boksen uten å forvrenge forholdet */
   display: block;
   margin: 0 auto;
 }
@@ -119,9 +140,31 @@ footer {
   color: white;
   padding: 1rem;
   text-align: center;
+  flex-shrink: 0; /* Hindrer footer fra å krympe */
 }
 
 /* Responsive  */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .article-list {
+    grid-template-columns: 1fr; /* En kolonne på mellomstore skjermer */
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -133,10 +176,12 @@ footer {
 
   .article-list {
     grid-template-columns: 1fr; /* En kolonne på små skjermer */
+    width: 100%;
   }
 
-  @media screen and (max-he: 768px) {
-        
-    
+  .sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #ddd;
   }
 }
