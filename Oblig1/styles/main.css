@@ -56,36 +56,7 @@ main {
   width: 75%; /* Øker bredden på artikkel-listen */
 }
 
-.sidebar {
-  width: 25%; /* Justerer bredden på sidebaren */
-  padding: 1rem;
-  background-color: #f0f0f0;
-  border-left: 1px solid #ddd;
-  border-radius: 10px; /* Avrunder kantene på sidebaren */
-}
 
-.sidebar h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin-bottom: 0.5rem;
-}
-
-.sidebar ul li a {
-  color: #333;
-  text-decoration: none;
-}
-
-.sidebar ul li a:hover {
-  text-decoration: underline;
-}
 
 .ad {
   background-color: #ddd;
