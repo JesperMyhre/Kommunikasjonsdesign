@@ -51,7 +51,7 @@ main {
 .article-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 2rem; /* Øker gapet mellom artiklene */
+  gap: 5rem; /* Øker gapet mellom artiklene */
   padding: 1rem;
   width: 75%; /* Øker bredden på artikkel-listen */
 }
