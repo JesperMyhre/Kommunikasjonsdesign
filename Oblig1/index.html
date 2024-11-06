@@ -11,23 +11,16 @@
     />
     <link rel="stylesheet" type="text/css" href="./styles/main.css" />
     <link rel="stylesheet" type="text/css" href="./styles/root.css" />
-    <title>Kommunikasjonsdesign - Home</title>
+    <title>Forside</title>
   </head>
   <body>
-    <!--     <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-        </ul>
-      </nav>
-    </header> -->
+    <header>
+      <h1>Gruppe 11</h1>
+    </header>
     <main>
-      <h1>Kommunikasjonsdesign Gruppe 11</h1>
-      <h2 id="storyHeader">Story 1</h2>
-      <section id="storySelection">
-        <button id="prevButton" class="navButton">&lt;</button>
-        <section id="storyContainer">
-          <section id="storyScroll">
+      <section class="article-list">
+        <a href="artikkel1.html" class="article-link">
+          <article class="article-item">
             <video
               class="storyVideo"
               src="./media/0001-0359.webm"
@@ -35,34 +28,36 @@
               loop
               muted
             ></video>
-            <video
-              class="storyVideo"
-              src="./media/0001-0359.webm"
-              autoplay
-              loop
-              muted
-            ></video>
-            <video
-              class="storyVideo"
-              src="./media/0001-0359.webm"
-              autoplay
-              loop
-              muted
-            ></video>
-            <video
-              class="storyVideo"
-              src="./media/0001-0359.webm"
-              autoplay
-              loop
-              muted
-            ></video>
-          </section>
-        </section>
-        <button id="nextButton" class="navButton">&gt;</button>
+            <h2>Parkeringskrise</h2>
+            <p> artikkel 1...</p>
+          </article>
+        </a>
+        <a href="artikkel2.html" class="article-link">
+          <article class="article-item">
+            <img src="./media/Bilde 22.jpg" alt="Bilde 2" />
+            <h2>Henlagte saker</h2>
+            <p>artikkel 2...</p>
+          </article>
+        </a>
+        <a href="artikkel3.html" class="article-link">
+          <article class="article-item">
+            <img src="./media/20210901_Drone-kveldsbilde-hoyblokka-9.jpg" alt="Bilde 3" />
+            <h2>Økonomikrisen rammer studentene</h2>
+            <p>artikkel 3...</p>
+          </article>
+        </a>
+        <a href="artikkel4.html" class="article-link">
+          <article class="article-item">
+            <img src="./media/Remmen-3-80.jpg" alt="Bilde 4" />
+            <h2>Rusproblematikk Blant Studenter</h2>
+            <p>artikkel 4...</p>
+          </article>
+        </a>
       </section>
-      <button id="selectBTN">SELECT</button>
-      <section id="dotsContainer"></section>
     </main>
+    <footer>
+      <p>&copy; 2023 Min Avis</p>
+    </footer>
     <script src="./scripts/home.js"></script>
   </body>
 </html>
