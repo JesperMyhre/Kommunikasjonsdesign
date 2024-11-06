@@ -30,6 +30,7 @@ body {
     align-items: center;
     position: relative;
     transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 5; /* Sørg for at scroll-boksene er synlige */
 }
 
 /* Faded-out effekt for jevn overgang */
@@ -70,7 +71,6 @@ article img {
     margin-bottom: 30px; /* Legg til ekstra margin nederst */
 }
 
-
 /* Stil for røykpartiklene */
 .smoke-particle {
     position: absolute;
@@ -90,17 +90,17 @@ article img {
     }
 }
 
-
 article {
     padding: 20px;
     max-width: 800px;
     margin: 40px auto;
-    background: black; 
+    background: rgba(0, 0, 0, 0.5); /* Gjør bakgrunnen gjennomsiktig med 50% opasitet */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: white;
-   
+    z-index: 10; /* Sett høyere z-index for å plassere foran røyken */
+    position: relative; /* Sørg for at z-index fungerer */
 }
 
 article h1 {
@@ -158,4 +158,251 @@ article img:hover {
     article p {
         font-size: 0.9rem;
     }
+}
+
+/* New CSS for smoke effect */
+.ag-format-container {
+  width: 1142px;
+  margin: 0 auto;
+  transition: all 2s ease; /* Legger til en overgang på alle egenskaper med en varighet på 2 sekunder */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ag-smoke-block {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  position: fixed; /* Endret til fixed for å dekke hele skjermen */
+  top: 0;
+  left: 0;
+  z-index: 0; /* Sett lavere z-index for å plassere bak artikkelen */
+}
+
+.ag-smoke_img {
+  width: 100%;
+  height: auto;
+  z-index: 0; /* Sett lavere z-index for å plassere bak artikkelen */
+  position: absolute;
+  bottom: 0;
+}
+
+.ag-smoke_img__left {
+  left: 0;
+  -webkit-animation: an-smoke-left 20s linear infinite; /* Økt varighet til 20 sekunder */
+  -moz-animation: an-smoke-left 20s linear infinite;
+  -o-animation: an-smoke-left 20s linear infinite;
+  animation: an-smoke-left 20s linear infinite;
+}
+
+.ag-smoke_img__right {
+  right: 0;
+  -webkit-animation: an-smoke-right 20s linear infinite; /* Økt varighet til 20 sekunder */
+  -moz-animation: an-smoke-right 20s linear infinite;
+  -o-animation: an-smoke-right 20s linear infinite;
+  animation: an-smoke-right 20s linear infinite;
+}
+
+@-webkit-keyframes an-smoke-left {
+  0%, 100% {
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-10%,0%);
+    transform: translate(-10%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(-20%, 0%);
+    transform: translate(-20%, 0%);
+  }
+  75% {
+    -webkit-transform: translate(-10%, 0%);
+    transform: translate(-10%, 0%);
+  }
+}
+
+@-moz-keyframes an-smoke-left {
+  0%, 100% {
+    -moz-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -moz-transform: translate(-10%,0%);
+    transform: translate(-10%, 0%);
+  }
+  50% {
+    -moz-transform: translate(-20%, 0%);
+    transform: translate(-20%, 0%);
+  }
+  75% {
+    -moz-transform: translate(-10%, 0%);
+    transform: translate(-10%, 0%);
+  }
+}
+
+@-o-keyframes an-smoke-left {
+  0%, 100% {
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -o-transform: translate(-10%,0%);
+    transform: translate(-10%, 0%);
+  }
+  50% {
+    -o-transform: translate(-20%, 0%);
+    transform: translate(-20%, 0%);
+  }
+  75% {
+    -o-transform: translate(-10%, 0%);
+    transform: translate(-10%, 0%);
+  }
+}
+
+@keyframes an-smoke-left {
+  0%, 100% {
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-10%, 0%);
+    -moz-transform: translate(-10%, 0%);
+    -o-transform: translate(-10%, 0%);
+    transform: translate(-10%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(-20%, 0%);
+    -moz-transform: translate(-20%, 0%);
+    -o-transform: translate(-20%, 0%);
+    transform: translate(-20%, 0%);
+  }
+  75% {
+    -webkit-transform: translate(-10%, 0%);
+    -moz-transform: translate(-10%, 0%);
+    -o-transform: translate(-10%, 0%);
+    transform: translate(-10%, 0%);
+  }
+}
+
+@-webkit-keyframes an-smoke-right {
+  0%, 100% {
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(10%,0%);
+    transform: translate(10%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(20%, 0%);
+    transform: translate(20%, 0%);
+  }
+  75% {
+    -webkit-transform: translate(10%, 0%);
+    transform: translate(10%, 0%);
+  }
+}
+
+@-moz-keyframes an-smoke-right {
+  0%, 100% {
+    -moz-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -moz-transform: translate(10%,0%);
+    transform: translate(10%, 0%);
+  }
+  50% {
+    -moz-transform: translate(20%, 0%);
+    transform: translate(20%, 0%);
+  }
+  75% {
+    -moz-transform: translate(10%, 0%);
+    transform: translate(10%, 0%);
+  }
+}
+
+@-o-keyframes an-smoke-right {
+  0%, 100% {
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -o-transform: translate(10%,0%);
+    transform: translate(10%, 0%);
+  }
+  50% {
+    -o-transform: translate(20%, 0%);
+    transform: translate(20%, 0%);
+  }
+  75% {
+    -o-transform: translate(10%, 0%);
+    transform: translate(10%, 0%);
+  }
+}
+
+@keyframes an-smoke-right {
+  0%, 100% {
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(10%, 0%);
+    -moz-transform: translate(10%, 0%);
+    -o-transform: translate(10%, 0%);
+    transform: translate(10%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(20%, 0%);
+    -moz-transform: translate(20%, 0%);
+    -o-transform: translate(20%, 0%);
+    transform: translate(20%, 0%);
+  }
+  75% {
+    -webkit-transform: translate(10%, 0%);
+    -moz-transform: translate(10%, 0%);
+    -o-transform: translate(10%, 0%);
+    transform: translate(10%, 0%);
+  }
+}
+
+@media only screen and (max-width: 1161px) {
+  .ag-format-container {
+    width: 960px;
+  }
+}
+
+@media only screen and (max-width: 979px) {
+  .ag-format-container {
+    width: 750px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .ag-format-container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .ag-format-container {
+    width: 85%;
+  }
 }
