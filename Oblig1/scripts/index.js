@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay"); // Henter overlay-elementet
   const landElements = Array.from(document.querySelectorAll(".land")); // Henter alle land-elementer
+  const sections = document.querySelectorAll(".infoContainerSmall");
+  const scrollButton = document.getElementById("scrollButton");
 
   let currentIndex = 0; // Indeksen til det nåværende området
   let isAreaSelected = false; // Flagg for å spore om et område er valgt
@@ -10,14 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
     landElements.forEach((el, i) => {
       el.style.fill = i === index ? "#f5f5f5" : "hsl(0, 0%, 14%)"; // Setter valgt område til hvit, resten til mørk grå
     });
-/*     // Viser overlay med informasjon om det valgte området
+    /*     // Viser overlay med informasjon om det valgte området
     overlay.style.display = "block";
     overlay.innerHTML = `<p>Du ser på: ${landElements[index].getAttribute("title")}</p>`; */
   }
 
   // Legger til klikk-event listeners på hvert land-element
   landElements.forEach((el, index) => {
-    el.addEventListener('click', () => {
+    el.addEventListener("click", () => {
       currentIndex = index; // Oppdaterer currentIndex til det klikkede området
       isAreaSelected = true; // Setter flagget til true
       focusArea(currentIndex); // Fokuserer på det klikkede området
@@ -30,8 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Legger til hover-effekt
-    el.addEventListener('mouseover', () => {
-      if (!isAreaSelected) { // Oppdaterer bare hvis ingen områder er valgt
+    el.addEventListener("mouseover", () => {
+      if (!isAreaSelected) {
+        // Oppdaterer bare hvis ingen områder er valgt
         el.style.fill = "#f5f5f5"; // Endrer farge ved hover
         overlay.style.display = "block";
         const infoArray = JSON.parse(el.getAttribute("data-info")); // Parser JSON-streng til array
@@ -40,21 +43,67 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    el.addEventListener('mouseout', () => {
-      if (!isAreaSelected) { // Oppdaterer bare hvis ingen områder er valgt
+    el.addEventListener("mouseout", () => {
+      if (!isAreaSelected) {
+        // Oppdaterer bare hvis ingen områder er valgt
         el.style.fill = index === currentIndex ? "#f5f5f5" : "hsl(0, 0%, 14%)"; // Tilbakestiller farge ved mouseout
       }
     });
   });
 
   // Skjuler overlay når man klikker utenfor et område
-  document.addEventListener('click', (event) => {
-    if (!event.target.classList.contains('land')) {
+  document.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("land")) {
       isAreaSelected = false; // Tilbakestiller flagget
       overlay.style.display = "none"; // Skjuler overlay
-      focusArea(currentIndex); // Tilbakestiller 
+      focusArea(currentIndex); // Tilbakestiller
     }
   });
 
   overlay.style.display = "none"; // Skjuler overlay ved start
+
+  let currentSectionIndex = 0;
+
+  scrollButton.addEventListener("click", () => {
+    if (currentSectionIndex < sections.length) {
+      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+      currentSectionIndex++;
+    } else {
+      currentSectionIndex = 0;
+      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+    }
+  });
+
+  const counter = document.getElementById("counter");
+  let hasAnimated = false;
+
+  function animateCounter() {
+    const end = 100000;
+    const duration = 2500;
+    const startTime = new Date().getTime();
+    const endTime = startTime + duration;
+
+    function updateCounter() {
+      const now = new Date().getTime();
+      const remaining = Math.max((endTime - now) / duration, 0);
+      const value = Math.round(end - remaining * end);
+      counter.textContent = value.toLocaleString();
+      if (value < end) {
+        requestAnimationFrame(updateCounter);
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  function checkScroll() {
+    const header = document.getElementById("animatedHeader");
+    const rect = header.getBoundingClientRect();
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight && !hasAnimated) {
+      hasAnimated = true;
+      animateCounter();
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll);
 });
