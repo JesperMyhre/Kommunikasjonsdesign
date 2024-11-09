@@ -1,65 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
-  const landElements = Array.from(document.querySelectorAll(".land"));
   const sections = document.querySelectorAll(".infoContainerSmall");
   const scrollButton = document.getElementById("scrollButton");
   const progressBar = document.getElementById("progressBar");
+  const map = document.getElementById("map");
+  const regions = [
+    { id: "NO-03", title: "Oslo", origin: "-5% 85%" },
+    { id: "NO-07", title: "Stavern", origin: "-5% 95%" },
+    { id: "NO-18", title: "Bodø", origin: "13% 30%" },
+  ];
 
-  let currentIndex = 0;
-  let isAreaSelected = false;
   let currentSectionIndex = -1;
+  let currentRegionIndex = 0;
+  let mapScrollCount = 0;
 
-  function focusArea(index) {
-    landElements.forEach((el, i) => {
-      el.style.fill = i === index ? "#f5f5f5" : "hsl(0, 0%, 14%)";
-    });
-  }
-
-  landElements.forEach((el, index) => {
-    el.addEventListener("click", () => {
-      currentIndex = index;
-      isAreaSelected = true;
-      focusArea(currentIndex);
-      overlay.style.display = "block";
-      const infoArray = JSON.parse(el.getAttribute("data-info"));
-      overlay.innerHTML = `<h3>${el.getAttribute("title")}</h3>
-                           <p>${infoArray.join("<br>")}</p>`;
-    });
-
-    el.addEventListener("mouseover", () => {
-      if (!isAreaSelected) {
-        el.style.fill = "#f5f5f5";
-        overlay.style.display = "block";
-        const infoArray = JSON.parse(el.getAttribute("data-info"));
-        overlay.innerHTML = `<h3>${el.getAttribute("title")}</h3>
-                             <p>${infoArray.join("<br>")}</p>`;
-      }
-    });
-
-    el.addEventListener("mouseout", () => {
-      if (!isAreaSelected) {
-        el.style.fill = index === currentIndex ? "#f5f5f5" : "hsl(0, 0%, 14%)";
-      }
-    });
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!event.target.classList.contains("land")) {
-      isAreaSelected = false;
-      overlay.style.display = "none";
-      focusArea(currentIndex);
-    }
-  });
-
-  overlay.style.display = "none";
-
-  // Create progress dots starting from the second section (index 1)
+  // Create progress dots starting from the first section (index 0)
   sections.forEach((section, index) => {
-    if (index > -1) {
-      const dot = document.createElement("div");
-      dot.classList.add("progressDot");
-      progressBar.appendChild(dot);
-    }
+    const dot = document.createElement("div");
+    dot.classList.add("progressDot");
+    progressBar.appendChild(dot);
   });
 
   const progressDots = document.querySelectorAll(".progressDot");
@@ -74,17 +33,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function updateOverlay(region) {
+    const regionElement = document.getElementById(region.id);
+    if (regionElement) {
+      const infoArray = JSON.parse(regionElement.getAttribute("data-info"));
+      overlay.innerHTML += `<h2>${
+        region.title
+      }</h2><p style="text-align: left">${infoArray.join("<br>")}</p>`;
+      overlay.classList.add("visible");
+    }
+  }
+
+  function highlightRegion(region) {
+    map
+      .querySelectorAll(".land")
+      .forEach((el) => el.classList.remove("highlighted"));
+    const regionElement = document.getElementById(region.id);
+    if (regionElement) {
+      regionElement.classList.add("highlighted");
+    }
+  }
+
+  function zoomToRegion(region) {
+    map.style.transformOrigin = region.origin;
+    map.style.transform = "scale(3)"; // Adjust the scale as needed
+    highlightRegion(region);
+  }
+
   scrollButton.addEventListener("click", () => {
     // Show the progress bar when the button is clicked
     progressBar.style.display = "flex";
 
-    if (currentSectionIndex < sections.length - 1) {
-      currentSectionIndex++;
+    // Check if the map is currently in view
+    const mapInView = sections[currentSectionIndex]?.id === "map-container";
+
+    if (mapInView && mapScrollCount < 3) {
+      // Update the overlay with the next region's information
+      updateOverlay(regions[currentRegionIndex]);
+      zoomToRegion(regions[currentRegionIndex]);
+      currentRegionIndex = (currentRegionIndex + 1) % regions.length;
+      mapScrollCount++;
     } else {
-      currentSectionIndex = 0;
+      // Reset mapScrollCount after three presses
+      if (mapScrollCount >= 3) {
+        mapScrollCount = 0;
+        map.style.transform = ""; // Reset zoom effect after three presses
+      }
+
+      // Scroll to the next section
+      if (currentSectionIndex < sections.length - 1) {
+        currentSectionIndex++;
+      } else {
+        currentSectionIndex = 0;
+      }
+      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+      updateProgressBar();
     }
-    sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
-    updateProgressBar();
   });
 
   const counter = document.getElementById("counter");

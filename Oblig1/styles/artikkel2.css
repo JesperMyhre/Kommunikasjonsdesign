@@ -93,6 +93,50 @@ header {
   }
 }
 
+#map-container {
+  width: 100%;
+  height: 100vh; /* Ensure the map takes up the full viewport height */
+  overflow: hidden; /* Hide any overflow */
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out, transform-origin 0.5s ease-in-out; /* Smooth transition for zoom effect and transform origin */
+}
+
+.land {
+  fill: var(--background-secondary);
+  stroke: white;
+  stroke-width: 1 solid;
+}
+
+.land.highlighted {
+  fill: var(--background-primary); /* Highlight color for the fill */
+  stroke: none;
+}
+
+#overlay {
+  position: absolute;
+  top: 120px;
+  right: 180px;
+  height: 100%;
+  color: white;
+  display: none; /* Initially hidden */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: normal;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Fade-in effect */
+}
+
+#overlay.visible {
+  display: block;
+  opacity: 0.85; /* Make the overlay visible with fade-in effect */
+}
+
 #interviewSection{
   display: flex;
   flex-direction: row;
