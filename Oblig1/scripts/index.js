@@ -1,13 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
   const sections = document.querySelectorAll(".infoContainerSmall");
-  const scrollButton = document.getElementById("scrollButton");
+  const scrollButton = document.getElementById("scrollDown");
+  const scrollUpButton = document.getElementById("scrollUp");
   const progressBar = document.getElementById("progressBar");
   const map = document.getElementById("map");
+  const pulseContainer = document.createElement("div");
+  pulseContainer.id = "pulseContainer";
+  map.appendChild(pulseContainer);
+
   const regions = [
-    { id: "NO-03", title: "Oslo", origin: "-5% 85%" },
-    { id: "NO-07", title: "Stavern", origin: "-5% 95%" },
-    { id: "NO-18", title: "Bodø", origin: "13% 30%" },
+    {
+      id: "NO-03",
+      title: "Oslo",
+      origin: "-5% 85%",
+      pulseCoords: { x: "9.9%", y: "78.3%" },
+    },
+    {
+      id: "NO-07",
+      title: "Stavern",
+      origin: "-5% 95%",
+      pulseCoords: { x: "8.8%", y: "83%" },
+    },
+    {
+      id: "NO-18",
+      title: "Bodø",
+      origin: "12% 35%",
+      pulseCoords: { x: "16.4%", y: "35.3%" },
+    },
   ];
 
   let currentSectionIndex = -1;
@@ -37,9 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionElement = document.getElementById(region.id);
     if (regionElement) {
       const infoArray = JSON.parse(regionElement.getAttribute("data-info"));
-      overlay.innerHTML += `<h2>${
-        region.title
-      }</h2><p style="text-align: left">${infoArray.join("<br>")}</p>`;
+      overlay.innerHTML = `<h3>${region.title}</h3><p>${infoArray.join(
+        "<br>"
+      )}</p>`;
       overlay.classList.add("visible");
     }
   }
@@ -60,6 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightRegion(region);
   }
 
+  function createPulseEffect(coords) {
+    pulseContainer.innerHTML = ""; // Clear any existing pulse effects
+    const pulse = document.createElement("div");
+    pulse.classList.add("pulse");
+    pulse.style.left = coords.x;
+    pulse.style.top = coords.y;
+    pulseContainer.appendChild(pulse);
+  }
+
   scrollButton.addEventListener("click", () => {
     // Show the progress bar when the button is clicked
     progressBar.style.display = "flex";
@@ -71,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Update the overlay with the next region's information
       updateOverlay(regions[currentRegionIndex]);
       zoomToRegion(regions[currentRegionIndex]);
+      createPulseEffect(regions[currentRegionIndex].pulseCoords);
       currentRegionIndex = (currentRegionIndex + 1) % regions.length;
       mapScrollCount++;
     } else {
@@ -78,6 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (mapScrollCount >= 3) {
         mapScrollCount = 0;
         map.style.transform = ""; // Reset zoom effect after three presses
+        map
+          .querySelectorAll(".land")
+          .forEach((el) => el.classList.remove("highlighted")); // Remove highlight
+        pulseContainer.innerHTML = ""; // Remove pulse effect
       }
 
       // Scroll to the next section
@@ -85,6 +119,43 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSectionIndex++;
       } else {
         currentSectionIndex = 0;
+      }
+      sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+      updateProgressBar();
+    }
+  });
+
+  scrollUpButton.addEventListener("click", () => {
+    // Show the progress bar when the button is clicked
+    progressBar.style.display = "flex";
+
+    // Check if the map is currently in view
+    const mapInView = sections[currentSectionIndex]?.id === "map-container";
+
+    if (mapInView && mapScrollCount < 3) {
+      // Update the overlay with the previous region's information
+      currentRegionIndex =
+        (currentRegionIndex - 1 + regions.length) % regions.length;
+      updateOverlay(regions[currentRegionIndex]);
+      zoomToRegion(regions[currentRegionIndex]);
+      createPulseEffect(regions[currentRegionIndex].pulseCoords);
+      mapScrollCount++;
+    } else {
+      // Reset mapScrollCount after three presses
+      if (mapScrollCount >= 3) {
+        mapScrollCount = 0;
+        map.style.transform = ""; // Reset zoom effect after three presses
+        map
+          .querySelectorAll(".land")
+          .forEach((el) => el.classList.remove("highlighted")); // Remove highlight
+        pulseContainer.innerHTML = ""; // Remove pulse effect
+      }
+
+      // Scroll to the previous section
+      if (currentSectionIndex > 0) {
+        currentSectionIndex--;
+      } else {
+        currentSectionIndex = sections.length - 1;
       }
       sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
       updateProgressBar();

@@ -102,7 +102,8 @@ header {
 
 #map {
   width: 100%;
-  height: 100%;
+  height: 80%;
+  margin: auto 0;
   transition: transform 0.5s ease-in-out, transform-origin 0.5s ease-in-out; /* Smooth transition for zoom effect and transform origin */
 }
 
@@ -118,9 +119,10 @@ header {
 }
 
 #overlay {
+  z-index: 99;
   position: absolute;
-  top: 120px;
-  right: 180px;
+  top: 250px;
+  right: 150px;
   height: 100%;
   color: white;
   display: none; /* Initially hidden */
@@ -137,6 +139,27 @@ header {
   opacity: 0.85; /* Make the overlay visible with fade-in effect */
 }
 
+.pulse {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  pointer-events: none; /* Ensure the pulse does not interfere with map interactions */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 #interviewSection{
   display: flex;
   flex-direction: row;
@@ -146,17 +169,22 @@ header {
   padding: 1rem;
 }
 
-#policeIcon{
+.storyIcon{
   width: 300px;
   color: white;
   margin: 1rem auto 0 auto;
 }
 
-#scrollButton {
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
   position: fixed;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 45%;
+}
+
+.scrollButton {
   width: 60px;
   height: 60px;
   background-color: var(--background-secondary);
@@ -170,24 +198,14 @@ header {
   justify-content: center;
 }
 
-#scrollButton:hover {
+.scrollButton:hover {
   background-color: hsl(0, 0%, 20%);
 }
 
-#scrollButton::before {
-  content: '↓';
-  font-size: 2rem;
-  animation: bob 1s infinite;
+#upArrow{
+  transform: rotate(180deg);
 }
 
-@keyframes bob {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
 #animatedHeader {
   height: auto;
   width: 100%;
