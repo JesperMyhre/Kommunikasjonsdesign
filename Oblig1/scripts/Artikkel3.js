@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
   function calculateResult() {
     const stipend = parseFloat(document.getElementById("stipend").value) || 0;
     const leie = parseFloat(document.getElementById("leie").value) || 0;
+    const strøm = parseFloat(document.getElementById("strøm").value) || 0;
     const mat = parseFloat(document.getElementById("mat").value) || 0;
     const transport = parseFloat(document.getElementById("transport").value) || 0;
     const andreUtgifter = parseFloat(document.getElementById("andreUtgifter").value) || 0;
 
-    const totalt = leie + mat + transport + andreUtgifter;
+    const totalt = leie + mat + transport + andreUtgifter + strøm;
     const resultat = stipend - totalt;
 
     document.getElementById("totalt").innerText = totalt;
