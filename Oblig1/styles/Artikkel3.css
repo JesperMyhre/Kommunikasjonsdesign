@@ -88,6 +88,10 @@ article img:hover {
    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+canvas {
+  margin: 20px 0;
+}
+
 #stipendTableContainer {
   margin: 20px 0;
   padding: 20px;

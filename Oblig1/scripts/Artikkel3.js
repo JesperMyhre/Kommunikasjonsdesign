@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   calculateResult();
 
-  //Chart//
-  var ctx = document.getElementById('rentChart').getContext('2d');
-  var rentChart = new Chart(ctx, {
+  //Chart for rent prices
+  var ctxRent = document.getElementById('rentChart').getContext('2d');
+  var rentChart = new Chart(ctxRent, {
     type: 'bar',
     data: {
       labels: ['2020', '2021', '2022', '2023'],
@@ -39,6 +39,30 @@ document.addEventListener("DOMContentLoaded", function() {
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  //Chart for price development
+  var ctxPrice = document.getElementById('priceChart').getContext('2d');
+  var priceChart = new Chart(ctxPrice, {
+    type: 'line',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023'],
+      datasets: [{
+        label: 'Prisutvikling (NOK)',
+        data: [7500, 8000, 8500, 9000, 9500],
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+        fill: true
       }]
     },
     options: {
