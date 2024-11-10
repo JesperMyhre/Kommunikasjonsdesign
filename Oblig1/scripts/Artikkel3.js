@@ -1,7 +1,32 @@
+document.addEventListener("DOMContentLoaded", function() {
+  function calculateResult() {
+    const stipend = parseFloat(document.getElementById("stipend").value) || 0;
+    const leie = parseFloat(document.getElementById("leie").value) || 0;
+    const mat = parseFloat(document.getElementById("mat").value) || 0;
+    const transport = parseFloat(document.getElementById("transport").value) || 0;
+    const andreUtgifter = parseFloat(document.getElementById("andreUtgifter").value) || 0;
 
+    const totalt = leie + mat + transport + andreUtgifter;
+    const resultat = stipend - totalt;
 
+    document.getElementById("totalt").innerText = totalt;
+    const resultatElement = document.getElementById("resultat");
+    resultatElement.innerText = resultat;
 
-//Chart//
+    if (resultat >= 0) {
+      resultatElement.style.color = "green";
+    } else {
+      resultatElement.style.color = "red";
+    }
+  }
+
+  document.querySelectorAll("#stipendTable input").forEach(input => {
+    input.addEventListener("input", calculateResult);
+  });
+
+  calculateResult();
+
+  //Chart//
   var ctx = document.getElementById('rentChart').getContext('2d');
   var rentChart = new Chart(ctx, {
     type: 'bar',
@@ -23,3 +48,4 @@
       }
     }
   });
+});
