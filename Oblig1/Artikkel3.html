@@ -110,10 +110,10 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ab sapiente officiis consectetur mollitia molestias esse vero magni atque quo porro libero iusto voluptas, aliquid facilis nulla. Nisi, sequi officia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iure voluptates esse facilis nam sequi repudiandae? Unde aliquid neque aliquam labore, quibusdam illo laboriosam illum sunt veniam, minima assumenda aperiam?</p>
         <h2>Utregning av Stipendet til Studenter</h2>
         <div id="stipendTableContainer">
-          <table id="stipendTable">
+          <table class="stipendTable" id="stipendTableOslo">
             <thead>
               <tr>
-                <th>Beskrivelse</th>
+                <th>Utgifter (OSLO)</th>
                 <th>Beløp (NOK)</th>
               </tr>
             </thead>
@@ -125,7 +125,7 @@
               <tr>
                 <td>Leie</td>
                 <!--Gjennomsnitt prisen for studentbolig halden remmen -->
-                <td><input type="number" id="leie" value="6397"/></td>
+                <td><input type="number" id="leie" value="8160"/></td>
               </tr>
               <tr>
                 <tr>
@@ -149,13 +149,73 @@
                 <td id="totalt"></td>
               </tr>
               <tr>
-                <td>Resultat</td>
+                <td>Sum</td>
+                <td id="resultat"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="stipendTable" id="stipendTableHalden">
+            <thead>
+              <tr>
+                <th>Utgifter (HALDEN)</th>
+                <th>Beløp (NOK)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stipend fra Lånekassen</td>
+                <td><input type="number" id="stipend" value="10340" /></td>
+              </tr>
+              <tr>
+                <td>Leie</td>
+                <!--Gjennomsnitt prisen for studentbolig halden remmen -->
+                <!--Gjennomsnitt regnet ut basert på forskjellige boløsninger tilbudt av SIØ-->
+                <td><input type="number" id="leie" value="6056"/></td>
+              </tr>
+              <tr>
+                <tr>
+                  <td>Strøm</td>
+                  <td><input type="number" id="strøm" value="400" /></td>
+                </tr>
+                <td>Mat</td>
+                <td><input type="number" id="mat" value="3500" /></td>
+              </tr>
+              <tr>
+                <td>Transport</td>
+                <td><input type="number" id="transport" value="500" /></td>
+              </tr>
+              <tr>
+                <td>Andre utgifter</td>
+                <td><input type="number" id="andreUtgifter" value="1000" /></td>
+              </tr>
+
+              <tr>
+                <td>Totalt</td>
+                <td id="totalt"></td>
+              </tr>
+              <tr>
+                <td>Sum</td>
                 <td id="resultat"></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit asperiores aliquid quo id ab magni, voluptas et tempora molestias necessitatibus, ofte iste exercitationem veniam obcaecati quas quisquam eveniet laborum unde!</p>
+        <section id="stipendByYearContainer">
+          <h2>Hvor mye koster dette deg på sikt?</h2>
+          <section id="stipendButtonContainer">
+            <button class="stipendButton" data-years="1">1 år</button>
+            <button class="stipendButton" data-years="2">2 år</button>
+            <section>
+              <button class="stipendButton" data-years="3">3 år</button>
+            </section>
+            <button class="stipendButton" data-years="4">4 år</button>
+            <button class="stipendButton" data-years="5">5 år</button>
+          </section>
+          <section id="sumContainer">
+            <div class="sum">0 kr</div>
+            <div class="sum">0 kr</div>
+          </section>
+        </section>
       </article>
     </main>
     <footer>
