@@ -140,7 +140,7 @@ canvas {
   font-weight: bold;
 }
 
-.stipendButton {
+.stipendButton, .resetButton {
   font-size: 1rem;
   border: 1px solid #007bff;
   border-radius: 5px;

@@ -58,6 +58,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function resetTable() {
+    const defaultValues = {
+      stipend: 10340,
+      leieOslo: 8160,
+      leieHalden: 6397,
+      strøm: 400,
+      mat: 3500,
+      transport: 500,
+      andreUtgifter: 1000,
+    };
+
+    document.querySelector("#stipendTableOslo #stipend").value =
+      defaultValues.stipend;
+    document.querySelector("#stipendTableOslo #leie").value =
+      defaultValues.leieOslo;
+    document.querySelector("#stipendTableOslo #strøm").value =
+      defaultValues.strøm;
+    document.querySelector("#stipendTableOslo #mat").value = defaultValues.mat;
+    document.querySelector("#stipendTableOslo #transport").value =
+      defaultValues.transport;
+    document.querySelector("#stipendTableOslo #andreUtgifter").value =
+      defaultValues.andreUtgifter;
+
+    document.querySelector("#stipendTableHalden #stipend").value =
+      defaultValues.stipend;
+    document.querySelector("#stipendTableHalden #leie").value =
+      defaultValues.leieHalden;
+    document.querySelector("#stipendTableHalden #strøm").value =
+      defaultValues.strøm;
+    document.querySelector("#stipendTableHalden #mat").value =
+      defaultValues.mat;
+    document.querySelector("#stipendTableHalden #transport").value =
+      defaultValues.transport;
+    document.querySelector("#stipendTableHalden #andreUtgifter").value =
+      defaultValues.andreUtgifter;
+
+    calculateResult("stipendTableOslo");
+    calculateResult("stipendTableHalden");
+  }
+
   function calculateSumByYear(years) {
     const osloTotal =
       parseFloat(
@@ -109,6 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .forEach((button) => {
       button.addEventListener("click", handleButtonClick);
     });
+
+  document.querySelector(".resetButton").addEventListener("click", resetTable);
 
   addEventListeners("stipendTableOslo");
   addEventListeners("stipendTableHalden");
