@@ -27,7 +27,7 @@ header {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/Bilde\ 22.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/artikkel2/Bilde\ 22.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

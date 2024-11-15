@@ -4,7 +4,7 @@ body {
     width: 100%;
     font-family: 'Ubuntu', sans-serif;
     background-color: black;
-    cursor: none;
+    cursor: pointer;
 }
 
 /* Definerer fade-in animasjonen */
