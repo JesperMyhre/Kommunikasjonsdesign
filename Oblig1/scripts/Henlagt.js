@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollUpButton = document.getElementById("scrollUp");
   const progressBar = document.getElementById("progressBar");
 
-  let currentSectionIndex = -1;
+  let currentSectionIndex = 0;
 
   // Initialize the map and set its view to a specific location and zoom level
   const map = L.map("map").setView([60.472, 8.4689], 5); // Coordinates for Norway
@@ -65,43 +65,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const handleScroll = (direction) => {
-    progressBar.style.display = "flex";
-    currentSectionIndex =
-      (currentSectionIndex + direction + sections.length) % sections.length;
+    if (direction === "down" && currentSectionIndex < sections.length - 1) {
+      currentSectionIndex++;
+    } else if (direction === "up" && currentSectionIndex > 0) {
+      currentSectionIndex--;
+    }
     sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
     updateProgressBar();
   };
 
-  scrollButton.addEventListener("click", () => handleScroll(1));
-  scrollUpButton.addEventListener("click", () => handleScroll(-1));
+  scrollButton.addEventListener("click", () => handleScroll("down"));
+  scrollUpButton.addEventListener("click", () => handleScroll("up"));
 
-  // Function to count up to a target number
-  const countUp = (element, target, duration) => {
-    let start = 0;
-    const increment = target / (duration / 10);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        start = target;
-        clearInterval(timer);
-      }
-      element.textContent = `${Math.floor(
-        start
-      ).toLocaleString()} henleggelser bare i 2023`;
-    }, 10);
-  };
-
-  // Intersection Observer to start count-up when containerOne comes into view
-  const countUpElement = document.getElementById("countUp");
-  const containerOne = document.getElementById("containerOne");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        countUp(countUpElement, 100000, 2000); // Count up to 100,000 in 2 seconds
-        observer.unobserve(containerOne); // Stop observing after counting up
-      }
-    });
-  });
-
-  observer.observe(containerOne);
+  // Ensure the page starts at the top
+  window.scrollTo(0, 0);
+  updateProgressBar();
 });

@@ -115,19 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
     animateNumber(sumElements[0], currentOsloSum, osloSum, 1000);
     animateNumber(sumElements[1], currentHaldenSum, haldenSum, 1000);
 
-    adjustDivSize(sumElements[0], osloSum);
-    adjustDivSize(sumElements[1], haldenSum);
-
     currentOsloSum = osloSum;
     currentHaldenSum = haldenSum;
-  }
-
-  function adjustDivSize(element, value) {
-    const baseSize = 10; // Base size in vw
-    const scaleFactor = 0.0001; // Adjust this factor to control the scaling
-    const newSize = baseSize + value * scaleFactor;
-    element.style.width = newSize + "vw";
-    element.style.height = newSize + "vw";
   }
 
   function handleButtonClick(event) {
