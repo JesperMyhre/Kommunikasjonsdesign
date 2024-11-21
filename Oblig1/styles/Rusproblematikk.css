@@ -5,208 +5,260 @@
   --font: "Ubuntu", "sans-serif";
 }
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  /* overflow-x: hidden; */ /* Prevent horizontal scrolling */
-  font-family: var(--font);
+  box-sizing: border-box;
 }
 
-body {
+main{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#bannerContainer{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1{
+    font-size: 5rem;
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Ubuntu', sans-serif;
-    background-color: black;
-    cursor: pointer;
+  }
 }
 
-/* Definerer fade-in animasjonen */
+img {
+  max-width: 60%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#articleContainer{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  article{
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 1s ease-in-out, color 1s ease-in-out;
+  color: white;
+  
+  h2{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #023047;
+    padding-bottom: 10px;
+  }
+  p{
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+/*
+
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Scroll-seksjoner med Parallax-effekt */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.bannerHeader {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 20px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .scroll-box {
-    height: 100vh; /* Fullskjerm */
-    min-height: 100vh; /* Sikrer at det alltid dekker skjermen */
-    background-size: cover; /* Bildet dekker hele skjermen */
-    background-repeat: no-repeat; /* Hindrer at bildet gjentar seg */
-    background-position: center; /* Sentrerer bildet */
-    background-attachment: fixed; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    z-index: 5; /* Sørg for at scroll-boksene er synlige */
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: background 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  padding: 20px;
 }
 
-/* Faded-out effekt for jevn overgang */
 .scroll-box.fade-out {
-    opacity: 0; /* Bakgrunnens opacity for smooth overgang */
+  opacity: 0;
 }
 
-/* Innhold */
 .scroll-box .content {
-    background: rgba(255, 255, 255, 0.8);
-    width: 50%;
-    padding: 20px;
-    text-align: center;
-    max-width: 100%;
-    animation: fadeIn 1.5s ease-out; /* Animasjon for fade-in */
-    opacity: 0; /* Start med å være usynlig */
-    animation-fill-mode: forwards; /* Beholder sluttstatusen til animasjonen */
-    border-radius: 10px;
-    overflow-wrap: break-word; /* Bryt ord som er for lange */
-    word-wrap: break-word; /* Bryt ord som er for lange */
-    hyphens: auto; /* Legg til bindestreker for lange ord */
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  border-radius: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .scroll-box .content h1 {
-    font-size: 3rem;
-    margin: 0;
+  font-size: 3rem;
+  margin: 0;
 }
 
 .scroll-box .content p {
-    font-size: 1.5rem;
-    margin-top: 10px;
+  font-size: 1.5rem;
+  margin-top: 10px;
 }
 
-/* Legg til mellomrom mellom bilder */
-article img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 30px; /* Legg til ekstra margin nederst */
+.article {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 1s ease-in-out, color 1s ease-in-out;
+  color: white;
 }
 
-article {
-    padding: 20px;
-    max-width: 800px;
-    margin: 40px auto;
-    background: rgba(0, 0, 0, 0.5); /* Gjør bakgrunnen gjennomsiktig med 50% opasitet */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 1s ease-in-out, color 1s ease-in-out;
-    color: white;
-    z-index: 10; /* Sett høyere z-index for å plassere foran røyken */
-    position: relative; /* Sørg for at z-index fungerer */
+.article h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: inherit;
+  border-bottom: 2px solid #023047;
+  padding-bottom: 10px;
 }
 
-/* Stil for artikkelen når overgangen skjer */
-article.transition {
-    background: none; /* Fjern bakgrunnsfargen */
-    color: black; /* Endre tekstfargen til svart */
+.article p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: inherit;
+  line-height: 1.6;
 }
 
-article h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: inherit; /* Bruk arvet farge */
-    border-bottom: 2px solid #023047;
-    padding-bottom: 10px;
+.article img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-article p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: inherit; /* Bruk arvet farge */
-    line-height: 1.6;
+.article img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-article img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-article img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Layout */
 @media (max-width: 768px) {
-    article {
-        padding: 15px;
-    }
+  .article {
+    padding: 15px;
+  }
 
-    article h1 {
-        font-size: 2rem;
-    }
+  .article h2 {
+    font-size: 2rem;
+  }
 
-    article p {
-        font-size: 1rem;
-    }
+  .article p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-    article {
-        padding: 10px;
-    }
+  .article {
+    padding: 10px;
+  }
 
-    article h1 {
-        font-size: 1.5rem;
-    }
+  .article h2 {
+    font-size: 1.5rem;
+  }
 
-    article p {
-        font-size: 0.9rem;
-    }
+  .article p {
+    font-size: 0.9rem;
+  }
 }
 
-/* Stil for intervju-seksjonen */
+@media (max-width: 600px) {
+  .scroll-box .content h1 {
+    font-size: 2rem;
+    word-wrap: break-word;
+  }
+
+  .scroll-box .content p {
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+
+  .article {
+    padding: 10px;
+    max-width: 100%;
+    margin: 20px auto;
+    box-sizing: border-box;
+  }
+
+  .article img {
+    margin: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  .article h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+  }
+}
+
 #interviewSection {
   display: none;
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
-/* Stil for å vise intervju-seksjonen */
 #interviewSection.show {
   display: block;
   opacity: 1;
-}
-
-/* Legg til media queries for mobil */
-@media (max-width: 600px) {
-    .scroll-box .content h1 {
-        font-size: 2rem;
-        word-wrap: break-word; /* Bryt ord som er for lange */
-    }
-
-    .scroll-box .content p {
-        font-size: 1rem;
-        word-wrap: break-word; /* Bryt ord som er for lange */
-    }
-
-    article {
-        padding: 10px;
-        max-width: 100%;
-        margin: 20px auto;
-        box-sizing: border-box; /* Inkluder padding og border i elementets totale bredde og høyde */
-    }
-
-    article img {
-        margin: 10px 0;
-        margin-bottom: 20px;
-    }
-
-    article h1 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        word-wrap: break-word; /* Bryt ord som er for lange */
-    }
-}
+} */
