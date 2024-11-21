@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.getElementById("overlay");
   const sections = document.querySelectorAll(".articleSection");
   const scrollButton = document.getElementById("scrollDown");
   const scrollUpButton = document.getElementById("scrollUp");
