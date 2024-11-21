@@ -87,7 +87,7 @@ header {
   }
 }
 
-#content {
+#content {   /*???*/
   display: grid;
   grid-template-columns: 1fr;
   gap: 100vh; /* Increase the gap to ensure only one section is visible at a time */
@@ -136,10 +136,6 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-.mapInfo {
-  /* Add your styles here */
 }
 
 #interviewSection {

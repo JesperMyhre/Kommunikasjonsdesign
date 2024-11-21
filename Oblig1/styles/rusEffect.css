@@ -39,7 +39,7 @@ body {
   position: fixed; /* Endret til fixed for å dekke hele skjermen */
   top: 0;
   left: 0;
-  z-index: 0; /* Sett lavere z-index for å plassere bak artikkelen */
+  z-index: -99; /* Sett lavere z-index for å plassere bak artikkelen */
 }
 
 .ag-smoke_img {
@@ -64,6 +64,19 @@ body {
   -moz-animation: an-smoke-right 20s linear infinite;
   -o-animation: an-smoke-right 20s linear infinite;
   animation: an-smoke-right 20s linear infinite;
+}
+
+.ag-smoke-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ag-smoke_img {
+  max-width: 100%;
+  height: auto;
 }
 
 @-webkit-keyframes an-smoke-left {
