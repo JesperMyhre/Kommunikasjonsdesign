@@ -233,13 +233,18 @@ canvas {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
+  font-size: 3rem; /* Øk font-størrelsen */
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
+  padding: 15px; /* Øk padding */
   cursor: pointer;
   border-radius: 50%;
   user-select: none;
+  width: 50px; /* Øk bredde */
+  height: 50px; /* Øk høyde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-control-prev {
@@ -266,7 +271,7 @@ canvas {
 
 .interview-content {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* Juster til center for å sentrere bildet vertikalt */
   gap: 20px;
 }
 
@@ -280,7 +285,7 @@ canvas {
   font-size: 1.125rem;
   line-height: 1.6;
   color: #333;
-  margin: 0;
+  margin: 0 0 1.5rem 0; /* Legg til margin nederst for avstand mellom avsnitt */
 }
 
 /* Media Queries for Mobile */
