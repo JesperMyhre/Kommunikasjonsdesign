@@ -50,10 +50,10 @@ header {
 #bannerHeader {
   color: white;
   position: absolute;
-  left: 50%;
+  left: 20px; /* Flytt teksten mot venstre */
   top: 50%;
-  transform: translate(-50%, -50%); /* Center horizontally and vertically */
-  text-align: center;
+  transform: translateY(-50%); /* Juster vertikalt */
+  text-align: left; /* Endre tekstjustering til venstre */
 
   h1 {
     font-size: 6rem;
@@ -73,6 +73,8 @@ header {
   width: 100vw;
   padding: 2rem;
   background-color: var(--background-secondary);
+  align-items: left
+  ;
 }
 
 .articleSection {
@@ -87,14 +89,15 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left; /* Juster teksten til venstre */
 
   h2 {
     font-size: 2.5rem;
-    text-align: center;
+    text-align: left; /* Juster overskriften til venstre */
   }
   p {
     font-size: 1.5rem;
+    text-align: left; /* Juster paragrafene til venstre */
   }
 }
 
