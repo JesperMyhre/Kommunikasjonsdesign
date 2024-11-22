@@ -33,7 +33,7 @@ main {
   flex-direction: column;
   gap: 2rem;
   margin: 0 2rem; /* Øker margin for å gi mer luft rundt elementene */
-  padding-top: 3rem;
+  padding-top: .5rem;
   align-items: center;
   margin-bottom: 3rem;
 }
@@ -47,9 +47,9 @@ main {
 .article-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 5rem; /* Øker gapet mellom artiklene */
+  gap: 2rem; /* Øker gapet mellom artiklene */
   padding: 1rem;
-  width: 75%; /* Øker bredden på artikkel-listen */
+  width: 90%; /* Øker bredden på artikkel-listen */
 }
 
 .ad {
@@ -92,6 +92,7 @@ main {
 .article-item h2 {
   font-size: 1.5rem;
   margin: 0.5rem 0;
+  padding-top: 5px;
 }
 
 .article-item p {
@@ -122,8 +123,9 @@ footer {
   }
 
   .article-list {
-    grid-template-columns: 1fr; /* En kolonne på mellomstore skjermer */
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* En kolonne på mellomstore skjermer */
+    width: 90%;
+    gap: 1rem;
   }
 
   .sidebar {
@@ -144,7 +146,8 @@ footer {
 
   .article-list {
     grid-template-columns: 1fr; /* En kolonne på små skjermer */
-    width: 100%;
+    width: 90%;
+    gap: 1rem;
   }
 
   .sidebar {

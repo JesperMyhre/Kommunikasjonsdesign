@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main>
-      <section id="bannerContainer">
+      <section id="bannerContainer" class="bannerSection">
         <!-- <p class="photoContext">Foto: Legg til fotodetaljer her</p> -->
         <section id="bannerHeader">
           <h1>Politikrise</h1>
@@ -43,7 +43,7 @@
       <div id="progressBar"></div>
       <div id="content">
         <section class="articleSection" id="containerOne">
-          <h2 id="countUp">100 000 henleggelser bare i 2023</h2>
+          <h2><span id="countUp">100 000</span> henleggelser bare i 2023</h2>
           <p>
             Ifølge tall fra Politidirektoratet ble over
             <strong>100 000</strong> saker henlagt i 2023 på grunn av manglende
@@ -100,6 +100,11 @@
           </section>
         </section>
         <section class="articleSection" id="containerThree">
+          <img
+            src="./media/artikkel2/graduate.svg"
+            alt="Graduate"
+            class="storyIcon"
+          />
           <h2>Politiutdannede uten jobb – selv i storbyene</h2>
           <p>
             For politistudentene er situasjonen kritisk. Selv i storbyene hvor
@@ -110,14 +115,9 @@
             «Flere politidistrikter varsler ut om å unngå å fylle ledige
             stillinger for å spare penger» (Langlo, L, M. 2023).
           </p>
-          <img
-            src="./media/artikkel2/graduate.svg"
-            alt="Graduate"
-            class="storyIcon"
-          />
         </section>
         <section class="articleSection" id="containerFour">
-          <h2>****</h2>
+          <h2></h2>
           <p>
             Arbeidsmarkedet for nyutdannede politifolk er under hardt press.
             Mange studenter fra Politihøgskolen opplever en voksende usikkerhet
@@ -129,7 +129,7 @@
         <section class="articleSection">
           <section id="interviewSection">
             <img
-              class="storyIcon"
+              id="policeStudent"
               src="./media/artikkel2/policeStudent.svg"
               alt="Politistudent"
             />
@@ -203,5 +203,6 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="./scripts/nav.js"></script>
     <script src="./scripts/Henlagt.js"></script>
+    <script src="./scripts/kart.js"></script>
   </body>
 </html>

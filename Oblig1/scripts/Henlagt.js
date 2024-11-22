@@ -1,66 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".articleSection");
+  const sections = document.querySelectorAll(".articleSection, .bannerSection");
   const scrollButton = document.getElementById("scrollDown");
   const scrollUpButton = document.getElementById("scrollUp");
+  const countUpElement = document.getElementById("countUp");
   const progressBar = document.getElementById("progressBar");
 
   let currentSectionIndex = 0;
 
-  // Initialize the map and set its view to a specific location and zoom level
-  const map = L.map("map").setView([60.472, 8.4689], 5); // Coordinates for Norway
-
-  // Add a tile layer to the map (OpenStreetMap tiles)
-  L.tileLayer(
-    "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
-    {
-      minZoom: 0,
-      maxZoom: 20,
-      attribution:
-        '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      ext: "png",
+  sections.forEach((section, index) => {
+    if (index > 0) {
+      const dot = document.createElement("div");
+      dot.classList.add("progressDot");
+      progressBar.appendChild(dot);
     }
-  ).addTo(map);
-
-  // Define regions with coordinates and information
-  const regions = [
-    {
-      name: "Oslo",
-      coords: [59.9139, 10.7522],
-      info: "Politiansatte - 3306, Politistudenter - 904, Politikapasitet - 3000-3400, Befolkning - 717 710",
-    },
-    {
-      name: "Stavern",
-      coords: [59.0, 10.0333],
-      info: "Politiansatte - 1339, Politistudenter - 347, Politikapasitet - 350-430, Befolkning - 5902",
-    },
-    {
-      name: "Bodø",
-      coords: [67.2804, 14.4049],
-      info: "Politiansatte - 746, Politistudenter - 483, Politikapasitet - 700-900, Befolkning - 55 759",
-    },
-  ];
-
-  // Add markers for each region
-  regions.forEach((region) => {
-    L.marker(region.coords)
-      .addTo(map)
-      .bindPopup(`<b>${region.name}</b><br>${region.info}`)
-      .openPopup();
   });
-
-  // Create progress dots starting from the first section (index 0)
-  sections.forEach(() => {
-    const dot = document.createElement("div");
-    dot.classList.add("progressDot");
-    progressBar.appendChild(dot);
-  });
-
-  const progressDots = document.querySelectorAll(".progressDot");
 
   const updateProgressBar = () => {
-    progressDots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentSectionIndex);
+    const dots = document.querySelectorAll(".progressDot");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSectionIndex - 1);
     });
+    progressBar.style.display = currentSectionIndex === 0 ? "none" : "flex";
   };
 
   const handleScroll = (direction) => {
@@ -76,7 +36,43 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollButton.addEventListener("click", () => handleScroll("down"));
   scrollUpButton.addEventListener("click", () => handleScroll("up"));
 
-  // Ensure the page starts at the top
   window.scrollTo(0, 0);
-  updateProgressBar();
+
+  const countUp = (element, start, end, duration) => {
+    const step = (timestamp, startTime) => {
+      const progress = timestamp - startTime;
+      const current = Math.min(
+        Math.floor((progress / duration) * (end - start) + start),
+        end
+      );
+      element.textContent = current.toLocaleString();
+      if (current < end) {
+        window.requestAnimationFrame((timestamp) => step(timestamp, startTime));
+      }
+    };
+    window.requestAnimationFrame((timestamp) => step(timestamp, timestamp));
+  };
+
+  new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        countUp(countUpElement, 0, 100000, 2000);
+        observer.unobserve(entry.target);
+      }
+    });
+  }).observe(countUpElement);
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          currentSectionIndex = Array.from(sections).indexOf(entry.target);
+          updateProgressBar();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
 });

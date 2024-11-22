@@ -1,6 +1,8 @@
 :root {
   --background-primary: #f3f3f3;
   --background-secondary: hsl(0, 0%, 14%);
+  --background-police: #101820;
+  --font-color: #FEE715;
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   --font: "Ubuntu", "sans-serif";
 }
@@ -10,7 +12,7 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
   font-family: var(--font);
 }
 
@@ -27,14 +29,15 @@ header {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/artikkel2/Bilde\ 22.jpg");
+/*   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/artikkel2/Bilde\ 22.jpg"); */
+background-color: var(--background-police);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.photoContext {
+/* .photoContext {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -45,57 +48,66 @@ header {
   font-size: 12px;
   line-height: normal;
   opacity: 0.85;
-}
+} */
 
 #bannerHeader {
-  color: white;
+  color: var(--font-color);
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
   text-align: center;
-
   h1 {
     font-size: 6rem;
     margin: 0;
+    padding: 0.5rem 2rem 0 2rem;
+    border-bottom: 5px solid var(--font-color);
+    
   }
   h2 {
-    font-size: 3rem;
-    margin: 0;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  p{
+    font-weight: bold;
   }
 }
 
 
-#content {   /*???*/
+#content { 
   display: grid;
   grid-template-columns: 1fr;
-  gap: 100vh; /* Increase the gap to ensure only one section is visible at a time */
+  gap: 100vh;
   width: 100vw;
-  padding: 2rem;
-  background-color: var(--background-secondary);
+  background-color: var(--background-police);
 }
 
 .articleSection {
-  background-color: var(--background-secondary);
   color: white;
   padding: 1rem;
   border-radius: 10px;
-  height: 100vh; /* Ensure each section takes up the full viewport height */
-  width: 100%; /* Ensure the width does not exceed the viewport */
-  max-width: 90vw; /* Add a max-width to prevent overflow */
+  height: 100vh;
+  width: 60%;
+  max-width: 90vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  line-height: 1.3;
 
   h2 {
     font-size: 2.5rem;
     text-align: center;
+
   }
   p {
     font-size: 1.5rem;
   }
+}
+
+#countUp {
+  font-weight: bold;
+  color: var(--font-color);
 }
 
 #map {
@@ -109,6 +121,7 @@ header {
   justify-content: space-evenly;
   gap: 1rem;
   padding-top: 6rem;
+  width: 100% !important;
 }
 
 #mapInfoContainer {
@@ -124,12 +137,17 @@ header {
   border-radius: 25px;
   border: 1px solid var(--background-primary);
   padding: 1rem;
+  width: 90%;
 }
 
 .storyIcon {
-  width: 300px;
+  width: 20%;
   color: white;
   margin: 1rem auto 0 auto;
+}
+
+#policeStudent {
+ width: 100% !important;
 }
 
 .buttonContainer {
@@ -147,7 +165,6 @@ header {
   width: 60px;
   height: 60px;
   background-color: var(--background-secondary);
-  color: white;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -165,21 +182,27 @@ header {
   transform: rotate(180deg);
 }
 
-#animatedHeader {
-  height: auto;
-  width: 100%;
-  text-align: center;
-}
-
-#counter {
-  font-size: 2.5rem;
-  color: #fff;
-}
-
 #progressBar {
   position: fixed;
   top: 50%;
   left: 10px;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progressDot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--font-color);
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.progressDot.active {
+  opacity: 1;
 }
 
 /* Media Queries for Responsiveness */
@@ -215,14 +238,6 @@ header {
     height: 60vh;
   }
 
-  #overlay {
-    top: 150px;
-    right: 20px;
-    width: 90%;
-    height: auto;
-    font-size: 10px;
-  }
-
   .buttonContainer {
     left: 50%;
     transform: translateX(-50%);
@@ -235,9 +250,5 @@ header {
 
   .storyIcon {
     width: 100px;
-  }
-
-  .progressDot {
-    display: none;
   }
 }
