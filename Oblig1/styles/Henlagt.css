@@ -132,7 +132,9 @@ background-color: var(--background-police);
 
 #interviewSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   border-radius: 25px;
   border: 1px solid var(--background-primary);
@@ -146,8 +148,7 @@ background-color: var(--background-police);
 }
 
 #policeStudent {
- width: 100% !important;
- margin-right: .5rem;
+ width: 40% !important;
 }
 
 .buttonContainer {
@@ -224,12 +225,31 @@ background-color: var(--background-police);
     width: 90vw;
     padding: 1rem;
     margin: 0 auto;
-
     h2 {
       font-size: 2rem;
     }
     p {
       font-size: 1.2rem;
+    }
+  }
+
+  #progressBar {
+    opacity: 0;
+  }
+
+  #mapContainer{
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #mapInfoContainer{
+    display: flex;
+    padding-left: 1rem;
+    h3 {
+      margin: .5rem 0 0 0;
+    }
+    ul{
+      padding: 0;
+      margin: 0;
     }
   }
 
