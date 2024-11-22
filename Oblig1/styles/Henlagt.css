@@ -141,13 +141,13 @@ background-color: var(--background-police);
 }
 
 .storyIcon {
-  width: 20%;
-  color: white;
+  width: 30%;
   margin: 1rem auto 0 auto;
 }
 
 #policeStudent {
  width: 100% !important;
+ margin-right: .5rem;
 }
 
 .buttonContainer {
@@ -195,7 +195,7 @@ background-color: var(--background-police);
 .progressDot {
   width: 10px;
   height: 10px;
-  background-color: var(--font-color);
+  background-color: white;
   border-radius: 50%;
   opacity: 0.5;
   transition: opacity 0.3s;
