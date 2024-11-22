@@ -53,7 +53,7 @@ background-color: var(--background-police);
 #bannerHeader {
   color: var(--font-color);
   position: absolute;
-  left: 20px; /* Flytt teksten mot venstre */
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
   text-align: center;
@@ -102,7 +102,6 @@ background-color: var(--background-police);
   }
   p {
     font-size: 1.5rem;
-    text-align: left; /* Juster paragrafene til venstre */
   }
 }
 
