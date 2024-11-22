@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let activeButton = null;
   let currentOsloSum = 0;
   let currentHaldenSum = 0;
+  let currentSlide = 0;
 
   function animateNumber(element, start, end, duration) {
     const range = end - start;
@@ -197,4 +198,32 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
+
+  function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    if (index >= slides.length) {
+      currentSlide = 0;
+    } else if (index < 0) {
+      currentSlide = slides.length - 1;
+    } else {
+      currentSlide = index;
+    }
+    const offset = -currentSlide * 100;
+    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Initial call to show the first slide
+  showSlide(currentSlide);
+
+  // Attach event listeners to the controls
+  document.querySelector('.carousel-control-next').addEventListener('click', nextSlide);
+  document.querySelector('.carousel-control-prev').addEventListener('click', prevSlide);
 });

@@ -22,10 +22,16 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70%; /* Økt bredde */
+  width: 100%; /* Økt bredde */
   margin: 0 auto;
   padding: 30px; /* Økt padding */
+  p {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
 }
+
 
 #bannerContainer {
   color: var(--text-color); /* Endret fra black til var(--text-color) */
