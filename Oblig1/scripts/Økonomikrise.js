@@ -108,16 +108,23 @@ document.addEventListener("DOMContentLoaded", function () {
       parseFloat(
         document.querySelector("#stipendTableHalden #totalt").innerText
       ) || 0;
-
     const osloSum = osloTotal * years;
     const haldenSum = haldenTotal * years;
-
     const sumElements = document.querySelectorAll("#sumContainer .sum");
     animateNumber(sumElements[0], currentOsloSum, osloSum, 1000);
     animateNumber(sumElements[1], currentHaldenSum, haldenSum, 1000);
-
+    adjustDivSize(sumElements[0], osloSum);
+    adjustDivSize(sumElements[1], haldenSum);
     currentOsloSum = osloSum;
     currentHaldenSum = haldenSum;
+  }
+
+  function adjustDivSize(element, value) {
+    const baseSize = 6; // Base size in rem
+    const scaleFactor = 0.0001; // Adjust this factor to control the scaling
+    const newSize = baseSize + value * scaleFactor;
+    element.style.width = newSize + "rem";
+    element.style.height = newSize + "rem";
   }
 
   function handleButtonClick(event) {

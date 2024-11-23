@@ -69,27 +69,30 @@ article {
   margin: 0 auto;
   font-family: "Ubuntu", sans-serif;
   line-height: 1.6;
-}
 
-article h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
-}
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  p {
+    font-size: 1.425rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
 
-article p {
-  font-size: 1.425rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-article img {
-  max-width: 100%;
-  height: auto;
-  margin: 20px 0;
-  border-radius: 10px;
-  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+  }
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
 }
 
 canvas {
@@ -183,12 +186,12 @@ canvas {
 }
 
 .sum {
-  width: 10vw;
-  height: 10vw;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   background-color: #007bff;
   color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -322,9 +325,7 @@ canvas {
   }
 
   .sum {
-    width: 28vw;
-    height: 28vw;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .interview-content {
