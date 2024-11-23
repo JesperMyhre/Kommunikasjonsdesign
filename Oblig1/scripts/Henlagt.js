@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".articleSection, .bannerSection");
+  const sections = document.querySelectorAll(".scrollSection, .bannerSection");
   const scrollButton = document.getElementById("scrollDown");
   const scrollUpButton = document.getElementById("scrollUp");
   const scrollToTopButton = document.getElementById("topArrow");
