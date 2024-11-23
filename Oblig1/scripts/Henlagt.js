@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".articleSection, .bannerSection");
   const scrollButton = document.getElementById("scrollDown");
   const scrollUpButton = document.getElementById("scrollUp");
+  const scrollToTopButton = document.getElementById("topArrow");
   const countUpElement = document.getElementById("countUp");
   const progressBar = document.getElementById("progressBar");
 
@@ -35,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   scrollButton.addEventListener("click", () => handleScroll("down"));
   scrollUpButton.addEventListener("click", () => handleScroll("up"));
+  scrollToTopButton.addEventListener("click", () => {
+    currentSectionIndex = 0;
+    sections[currentSectionIndex].scrollIntoView({ behavior: "smooth" });
+    updateProgressBar();
+  });
 
   window.scrollTo(0, 0);
 

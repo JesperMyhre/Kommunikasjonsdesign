@@ -1,4 +1,4 @@
-nav{
+nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,23 +6,24 @@ nav{
   z-index: 1000;
   background-color: var(--background-secondary);
   opacity: 1;
-
-  ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style-type: none;
-    color: white;
-    margin: 20px 20px;
-    padding: 0;
-    a{
-      color: white;
-      text-decoration: none;
-    }
-  }
+  transition: opacity 0.2s ease-in-out; /* Add transition for smooth effect */
 }
 
-.navScroll{
-  
-  transition: opacity 0.2s ease-in-out;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style-type: none;
+  color: white;
+  margin: 20px 20px;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.navScroll {
+  opacity: 0;
 }
