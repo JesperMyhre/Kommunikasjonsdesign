@@ -200,18 +200,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function showSlide(index) {
-    const slides = document.querySelectorAll(".carousel-item");
-    if (index >= slides.length) {
-      currentSlide = 0;
-    } else if (index < 0) {
-      currentSlide = slides.length - 1;
-    } else {
-      currentSlide = index;
-    }
-    const offset = -currentSlide * 100;
-    document.querySelector(
-      ".carousel-inner"
-    ).style.transform = `translateX(${offset}%)`;
+    const carousels = document.querySelectorAll(".carousel");
+    carousels.forEach((carousel) => {
+      const slides = carousel.querySelectorAll(".carousel-item");
+      if (index >= slides.length) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = slides.length - 1;
+      } else {
+        currentSlide = index;
+      }
+      const offset = -currentSlide * 100;
+      carousel.querySelector(
+        ".carousel-inner"
+      ).style.transform = `translateX(${offset}%)`;
+    });
   }
 
   function nextSlide() {
@@ -226,10 +229,10 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(currentSlide);
 
   // Attach event listeners to the controls
-  document
-    .querySelector(".carousel-control-next")
-    .addEventListener("click", nextSlide);
-  document
-    .querySelector(".carousel-control-prev")
-    .addEventListener("click", prevSlide);
+  document.querySelectorAll(".carousel-control-next").forEach((control) => {
+    control.addEventListener("click", nextSlide);
+  });
+  document.querySelectorAll(".carousel-control-prev").forEach((control) => {
+    control.addEventListener("click", prevSlide);
+  });
 });
