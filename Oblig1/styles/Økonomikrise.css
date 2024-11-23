@@ -63,7 +63,6 @@ body {
   font-size: 1rem;
 }
 
-/* New CSS for Article */
 article {
   padding: 20px;
   max-width: 800px;
@@ -79,10 +78,10 @@ article h1 {
 }
 
 article p {
-  font-size: 1.425rem; /* Juster fontstørrelsen */
-  line-height: 1.6; /* Øk linjehøyden for bedre lesbarhet */
-  margin-bottom: 1.5rem; /* Øk marginen nederst for bedre avstand mellom avsnitt */
-  color: #333; /* Juster tekstfargen for bedre kontrast */
+  font-size: 1.425rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 article img {
@@ -92,6 +91,7 @@ article img {
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 article img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -108,21 +108,20 @@ canvas {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
-
   display: flex;
-  flex-direction: row;
-  gap: 5rem;
+  justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .stipendTable {
-  width: 100%;
+  width: 48%;
   border-collapse: collapse;
 }
 
 .stipendTable th,
 .stipendTable td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -163,7 +162,8 @@ canvas {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stipendButton:hover {
+.stipendButton:hover,
+.resetButton:hover {
   background-color: #0056b3;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -174,14 +174,11 @@ canvas {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#stipendButtonContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.resetButton {
   margin-top: 20px;
-  flex-wrap: wrap;
 }
 
+#stipendButtonContainer,
 #sumContainer {
   display: flex;
   flex-direction: row;
@@ -198,7 +195,6 @@ canvas {
   color: white;
   font-size: 2rem;
   font-weight: bold;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,26 +242,27 @@ canvas {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 3rem; /* Øk font-størrelsen */
+  font-size: 2rem;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 15px; /* Øk padding */
+  padding: 10px;
   cursor: pointer;
   border-radius: 50%;
   user-select: none;
-  width: 50px; /* Øk bredde */
-  height: 50px; /* Øk høyde */
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.carousel-control-prev {
-  left: 10px;
+.carousel-control-next {
+  right: 15rem;
 }
 
-.carousel-control-next {
-  right: 10px;
+.carousel img {
+  width: 70%;
+  height: 100%;
 }
 
 #intervjuer {
@@ -284,12 +281,12 @@ canvas {
 
 .interview-content {
   display: flex;
-  align-items: center; /* Juster til center for å sentrere bildet vertikalt */
+  align-items: center;
   gap: 20px;
 }
 
 .interview-content img {
-  max-width: 200px; /* Øk størrelsen på bildet */
+  max-width: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -298,10 +295,9 @@ canvas {
   font-size: 1.125rem;
   line-height: 1.6;
   color: #333;
-  margin: 0 0 1.5rem 0; /* Legg til margin nederst for avstand mellom avsnitt */
+  margin: 0 0 1.5rem 0;
 }
 
-/* Media Queries for Mobile */
 @media (max-width: 768px) {
   .bannerText h2 {
     font-size: 1.5rem;
@@ -336,8 +332,34 @@ canvas {
     font-size: 1.5rem;
   }
 
+  .interview-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .interview-content img {
-    max-width: 150px; /* Juster størrelsen på bildet for mobile enheter */
+    max-width: 250px; /* Juster størrelsen her */
+  }
+
+  #stipendTableContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stipendTable {
+    width: 100%;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+  .carousel-control-next {
+    right: 30%;
   }
 }
 
