@@ -24,7 +24,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -41,8 +45,12 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .bannerText h2 {
@@ -60,7 +68,7 @@ article {
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   line-height: 1.6;
 }
 
@@ -112,7 +120,8 @@ canvas {
   border-collapse: collapse;
 }
 
-.stipendTable th, .stipendTable td {
+.stipendTable th,
+.stipendTable td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -138,11 +147,13 @@ canvas {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.stipendTable td#totalt, .stipendTable td#resultat {
+.stipendTable td#totalt,
+.stipendTable td#resultat {
   font-weight: bold;
 }
 
-.stipendButton, .resetButton {
+.stipendButton,
+.resetButton {
   font-size: 1rem;
   border: 1px solid #007bff;
   border-radius: 5px;
@@ -192,7 +203,8 @@ canvas {
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.5s ease, height 0.5s ease, font-size 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.5s ease,
+    height 0.5s ease, font-size 0.5s ease;
 }
 
 .sum:hover {
@@ -229,7 +241,8 @@ canvas {
   border-radius: 10px;
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -306,11 +319,13 @@ canvas {
     font-size: 1rem;
   }
 
-  .stipendTable th, .stipendTable td {
+  .stipendTable th,
+  .stipendTable td {
     padding: 5px;
   }
 
-  .stipendButton, .resetButton {
+  .stipendButton,
+  .resetButton {
     font-size: 0.875rem;
     padding: 8px 16px;
   }

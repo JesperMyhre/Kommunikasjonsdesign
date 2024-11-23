@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function showSlide(index) {
-    const slides = document.querySelectorAll('.carousel-item');
+    const slides = document.querySelectorAll(".carousel-item");
     if (index >= slides.length) {
       currentSlide = 0;
     } else if (index < 0) {
@@ -209,7 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
       currentSlide = index;
     }
     const offset = -currentSlide * 100;
-    document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    document.querySelector(
+      ".carousel-inner"
+    ).style.transform = `translateX(${offset}%)`;
   }
 
   function nextSlide() {
@@ -224,6 +226,10 @@ document.addEventListener("DOMContentLoaded", function () {
   showSlide(currentSlide);
 
   // Attach event listeners to the controls
-  document.querySelector('.carousel-control-next').addEventListener('click', nextSlide);
-  document.querySelector('.carousel-control-prev').addEventListener('click', prevSlide);
+  document
+    .querySelector(".carousel-control-next")
+    .addEventListener("click", nextSlide);
+  document
+    .querySelector(".carousel-control-prev")
+    .addEventListener("click", prevSlide);
 });
