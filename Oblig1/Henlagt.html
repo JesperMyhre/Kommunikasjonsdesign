@@ -13,18 +13,18 @@
     <link rel="stylesheet" type="text/css" href="./styles/root.css" />
     <link rel="stylesheet" type="text/css" href="./styles/Henlagt.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <title>Artikkel 2</title>
+    <title>Henlagte politisaker</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li>Gruppe 11</li>
-        </ul>
-      </nav>
-    </header>
     <main>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>Gruppe 11</li>
+          </ul>
+        </nav>
+      </header>
       <section id="bannerContainer" class="bannerSection">
         <!-- <p class="photoContext">Foto: Legg til fotodetaljer her</p> -->
         <section id="bannerHeader">
@@ -43,7 +43,10 @@
       <div id="progressBar"></div>
       <div id="content">
         <section class="articleSection" id="containerOne">
-          <h2><span id="countUp">100 000</span> henleggelser bare i 2023</h2>
+          <h2>
+            <span id="countUp" class="textHighlight">100 000</span> henleggelser
+            bare i 2023
+          </h2>
           <p>
             Ifølge tall fra Politidirektoratet ble over
             <strong>100 000</strong> saker henlagt i 2023 på grunn av manglende
@@ -63,40 +66,47 @@
           <p>
             Sentraliseringen av politiet i Norge har resultert i nedlegging av
             lensmannskontorer i mindre kommuner. Dette har etter hvert skapt uro
-            blant lokalbefolkningen. Mange lokalsamfunn står uten fast
+            blant lokalbefolkningen. Mange lokalsamfunn står
+            <span class="textHighlight">uten fast</span>
             politibemanning, som skaper uro og frykt.
           </p>
         </section>
-        <section class="articleSection" id="mapContainer">
-          <div id="map"></div>
-          <section id="mapInfoContainer">
-            <section class="mapInfo">
-              <h3>Oslo</h3>
-              <ul>
-                <li>Poltiansatte - 3306</li>
-                <li>Politistudenter - 904</li>
-                <li>Politikapasitet - 3000-3400</li>
-                <li>Befolkning - 717 710</li>
-              </ul>
+        <section class="articleSection">
+          <h2>Oversikt over 3 distrikter i Norge</h2>
+          <section id="mapContainer">
+            <div id="map"></div>
+            <section id="mapInfoContainer">
+              <section class="mapInfo">
+                <h3>Oslo</h3>
+                <ul>
+                  <li>Poltiansatte - 3306</li>
+                  <li>Politistudenter - 904</li>
+                  <li>Politikapasitet - 3000-3400</li>
+                  <li>Befolkning - 717 710</li>
+                </ul>
+              </section>
+              <section class="mapInfo">
+                <h3>Stavern</h3>
+                <ul>
+                  <li>Poltiansatte - 1339</li>
+                  <li>Politistudenter - 347</li>
+                  <li>Politikapasitet - 350-430</li>
+                  <li>Befolkning - 5902</li>
+                </ul>
+              </section>
+              <section class="mapInfo">
+                <h3>Bodø</h3>
+                <ul>
+                  <li>Poltiansatte - 746</li>
+                  <li>Politistudenter - 483</li>
+                  <li>Politikapasitet - 700-900</li>
+                  <li>Befolkning - 55 759</li>
+                </ul>
+              </section>
             </section>
-            <section class="mapInfo">
-              <h3>Stavern</h3>
-              <ul>
-                <li>Poltiansatte - 1339</li>
-                <li>Politistudenter - 347</li>
-                <li>Politikapasitet - 350-430</li>
-                <li>Befolkning - 5902</li>
-              </ul>
-            </section>
-            <section class="mapInfo">
-              <h3>Bodø</h3>
-              <ul>
-                <li>Poltiansatte - 746</li>
-                <li>Politistudenter - 483</li>
-                <li>Politikapasitet - 700-900</li>
-                <li>Befolkning - 55 759</li>
-              </ul>
-            </section>
+          </section>
+          <section id="footNote">
+            <span>*Statistikk fra anonym kilde</span>
           </section>
         </section>
         <section class="articleSection" id="containerThree">
@@ -105,7 +115,10 @@
             alt="Graduate"
             class="storyIcon"
           />
-          <h2>Politiutdannede uten jobb – selv i storbyene</h2>
+          <h2>
+            Politiutdannede <span class="textHighlight">uten jobb</span> – selv
+            i storbyene
+          </h2>
           <p>
             For politistudentene er situasjonen kritisk. Selv i storbyene hvor
             mange forventer flere arbeidsmuligheter, er det ikke nok ledige
@@ -149,8 +162,9 @@
           />
           <p>
             Denne sentraliseringen kan føre til forsinkelser i politiets
-            responstid i mindre befolkede områder, noe som kan få alvorlige
-            konsekvenser for tryggheten i distriktene.
+            responstid i mindre befolkede områder, noe som kan få
+            <span class="textHighlight"> alvorlige konsekvenser</span> for
+            tryggheten i distriktene.
           </p>
         </section>
         <section class="articleSection" id="containerFive">
@@ -165,13 +179,13 @@
           </p>
         </section>
         <section class="articleSection" id="containerSix">
-          <h2>****</h2>
           <p>
             Denne mangelen på midler fører til en presset arbeidssituasjon for
             mange nyutdannede, som enten må vente lenge på en fast stilling
-            eller vurdere alternative karrierer. For mange som har investert
-            både tid og penger i politistudiet, oppleves situasjonen som dypt
-            frustrerende.
+            eller
+            <span class="textHighlight">vurdere alternative karrierer.</span>
+            For mange som har investert både tid og penger i politistudiet,
+            oppleves situasjonen som dypt frustrerende.
           </p>
         </section>
         <section class="articleSection" id="containerSeven">
@@ -186,9 +200,13 @@
 
             I mellomtiden står mange politistudenter på terskelen til usikre
             karriereutsikter, og spørsmålet som henger i luften, er hvor lenge
-            denne situasjonen kan vedvare før vi ser en merkbar svekkelse av
-            politiet i Norge.
+            denne situasjonen kan vedvare før vi ser en
+            <span class="textHighlight">merkbar svekkelse</span> av politiet i
+            Norge.
           </p>
+          <button id="topArrow">
+            <span>Tilbake til toppen</span>
+          </button>
         </section>
       </div>
 
@@ -201,9 +219,9 @@
         </button>
       </section>
     </main>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="./scripts/nav.js"></script>
-    <script src="./scripts/Henlagt.js"></script>
-    <script src="./scripts/kart.js"></script>
   </body>
+  <script src="./scripts/nav.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="./scripts/Henlagt.js"></script>
+  <script src="./scripts/kart.js"></script>
 </html>
