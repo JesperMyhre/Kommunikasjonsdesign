@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentSectionIndex = 0;
 
-  sections.forEach((section, index) => {
+  sections.forEach((e, index) => {
     if (index > 0) {
       const dot = document.createElement("div");
       dot.classList.add("progressDot");

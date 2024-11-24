@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize the map and set its view to a specific location and zoom level
-  const map = L.map("map").setView([60.472, 8.4689], 5); // Coordinates for Norway
+  // Determine the initial zoom level based on screen size
+  const initialZoom = window.innerWidth <= 768 ? 4 : 5;
 
-  // Add a tile layer to the map (OpenStreetMap tiles)
+  const map = L.map("map").setView([60.472, 8.4689], initialZoom);
+
   L.tileLayer(
     "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.{ext}",
     {
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ).addTo(map);
 
-  // Define regions with coordinates and information
   const regions = [
     {
       name: "Oslo",
@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  // Add markers for each region
   regions.forEach((region) => {
     L.marker(region.coords)
       .addTo(map)

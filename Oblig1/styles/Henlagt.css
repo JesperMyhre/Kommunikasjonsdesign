@@ -28,14 +28,13 @@ header {
 #bannerContainer {
   width: 100%;
   height: 100vh;
-  position: relative;
+  /*   position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  /*   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../media/artikkel2/Bilde\ 22.jpg"); */
   background-color: var(--background-police);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* .photoContext {
@@ -54,7 +53,6 @@ header {
 .textHighlight {
   font-weight: bold;
   color: var(--font-color);
-  /* text-decoration-line: underline; */
 }
 
 a {
@@ -63,15 +61,15 @@ a {
 
 #bannerHeader {
   color: var(--font-color);
-  position: absolute;
+  width: 60%;
+  /*   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  transform: translate(-50%, -50%); */
   text-align: center;
   h1 {
     font-size: 6rem;
     margin: 0;
-    padding: 0.5rem 2rem 0 2rem;
     border-bottom: 5px solid var(--font-color);
   }
   h2 {
@@ -114,8 +112,8 @@ a {
 }
 
 #map {
-  width: 600px;
-  height: 70vh;
+  width: 900px;
+  height: 700px;
 }
 
 #mapContainer {
@@ -235,10 +233,6 @@ a {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   #bannerHeader {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
     h1 {
       font-size: 3rem;
     }
