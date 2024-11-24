@@ -185,13 +185,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var priceChart = new Chart(ctxPrice, {
     type: "line",
     data: {
-      labels: ["2019", "2020", "2021", "2022", "2023"],
+      labels: ["2020", "2021", "2022", "2023", "2024"],
       datasets: [
         {
-          label: "Prisutvikling (NOK)",
-          data: [7500, 8000, 8500, 9000, 9500],
-          backgroundColor: "rgba(153, 102, 255, 0.2)",
-          borderColor: "rgba(153, 102, 255, 1)",
+          label: "Prisutvikling (NOK/m²)",
+          data: [42000, 44000, 48000, 50000, 52694],
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 1,
           fill: true,
         },
@@ -200,7 +200,23 @@ document.addEventListener("DOMContentLoaded", function () {
     options: {
       scales: {
         y: {
-          beginAtZero: true,
+          beginAtZero: false, // Adjusting to show realistic prices
+          title: {
+            display: true,
+            text: "Pris (NOK/m²)",
+          },
+        },
+        x: {
+          title: {
+            display: true,
+            text: "År",
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: "top",
         },
       },
     },
