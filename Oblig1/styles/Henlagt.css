@@ -230,6 +230,29 @@ a {
   opacity: 1;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out; /* Add transition for smooth effect */
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    color: white;
+    margin: 20px 20px;
+    padding: 0;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   #bannerHeader {
