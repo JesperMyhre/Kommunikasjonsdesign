@@ -12,8 +12,8 @@
 
 @keyframes float {
   to {
-      transform: translateY(-50px);
-      opacity: 0;
+    transform: translateY(-50px);
+    opacity: 0;
   }
 }
 
@@ -22,13 +22,6 @@
   width: 1142px;
   margin: 0 auto;
   transition: all 2s ease; /* Legger til en overgang på alle egenskaper med en varighet på 2 sekunder */
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .ag-smoke-block {
@@ -71,7 +64,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 }
 
 .ag-smoke_img {
@@ -80,12 +72,13 @@ body {
 }
 
 @-webkit-keyframes an-smoke-left {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -webkit-transform: translate(-10%,0%);
+    -webkit-transform: translate(-10%, 0%);
     transform: translate(-10%, 0%);
   }
   50% {
@@ -99,12 +92,13 @@ body {
 }
 
 @-moz-keyframes an-smoke-left {
-  0%, 100% {
+  0%,
+  100% {
     -moz-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -moz-transform: translate(-10%,0%);
+    -moz-transform: translate(-10%, 0%);
     transform: translate(-10%, 0%);
   }
   50% {
@@ -118,12 +112,13 @@ body {
 }
 
 @-o-keyframes an-smoke-left {
-  0%, 100% {
+  0%,
+  100% {
     -o-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -o-transform: translate(-10%,0%);
+    -o-transform: translate(-10%, 0%);
     transform: translate(-10%, 0%);
   }
   50% {
@@ -137,7 +132,8 @@ body {
 }
 
 @keyframes an-smoke-left {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translate(0%, 0%);
     -moz-transform: translate(0%, 0%);
     -o-transform: translate(0%, 0%);
@@ -164,12 +160,13 @@ body {
 }
 
 @-webkit-keyframes an-smoke-right {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -webkit-transform: translate(10%,0%);
+    -webkit-transform: translate(10%, 0%);
     transform: translate(10%, 0%);
   }
   50% {
@@ -183,12 +180,13 @@ body {
 }
 
 @-moz-keyframes an-smoke-right {
-  0%, 100% {
+  0%,
+  100% {
     -moz-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -moz-transform: translate(10%,0%);
+    -moz-transform: translate(10%, 0%);
     transform: translate(10%, 0%);
   }
   50% {
@@ -202,12 +200,13 @@ body {
 }
 
 @-o-keyframes an-smoke-right {
-  0%, 100% {
+  0%,
+  100% {
     -o-transform: translate(0%, 0%);
     transform: translate(0%, 0%);
   }
   25% {
-    -o-transform: translate(10%,0%);
+    -o-transform: translate(10%, 0%);
     transform: translate(10%, 0%);
   }
   50% {
@@ -221,7 +220,8 @@ body {
 }
 
 @keyframes an-smoke-right {
-  0%, 100% {
+  0%,
+  100% {
     -webkit-transform: translate(0%, 0%);
     -moz-transform: translate(0%, 0%);
     -o-transform: translate(0%, 0%);

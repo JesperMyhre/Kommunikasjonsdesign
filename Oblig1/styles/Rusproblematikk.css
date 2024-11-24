@@ -1,5 +1,4 @@
 :root {
- 
   --background-secondary: hsl(0, 0%, 14%);
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   --font: "Ubuntu", "sans-serif";
@@ -8,13 +7,13 @@
   --text-color: white;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font);
   color: var(--text-color);
-  
 }
 
 main {
@@ -22,16 +21,14 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%; /* Økt bredde */
-  margin: 0 auto;
-  padding: 30px; /* Økt padding */
   p {
     font-size: 2.2rem;
     line-height: 1.6;
     margin-bottom: 20px;
   }
 }
-
 
 #bannerContainer {
   color: var(--text-color); /* Endret fra black til var(--text-color) */
@@ -40,12 +37,10 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* Gjennomsiktig bakgrunn */
   text-align: center;
   position: relative;
   z-index: 1;
-  width: 100%; /* Sørger for at den dekker hele bredden */
-  height: 30rem;
+  width: 80%; /* Sørger for at den dekker hele bredden */
   padding: 30px; /* Økt padding */
 }
 
@@ -56,8 +51,7 @@ main {
 }
 
 img {
-  max-width: 60%;
-  height: auto;
+  max-width: 400px;
   margin: 20px 0;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -68,6 +62,12 @@ img:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #articleContainer {
   display: flex;
   flex-direction: column;
@@ -75,22 +75,21 @@ img:hover {
 }
 
 #articleContainer article {
-  
-  max-width: 900px; /* Økt bredde */
+  max-width: 800px; /* Økt bredde */
   padding: 30px; /* Økt padding */
   margin: 30px 0; /* Økt margin */
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 1s ease-in-out, color 1s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background 1s ease-in-out, color 1s ease-in-out;
   color: white;
   text-align: left; /* Endret fra center til left */
-
 }
 
 #articleContainer article h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   color: var(--secondary-color);
 }
 
@@ -121,7 +120,8 @@ img:hover {
 }
 
 @media (max-width: 600px) {
-  html, body {
+  html,
+  body {
     font-size: 16px;
   }
 
