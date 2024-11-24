@@ -118,10 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
     currentOsloSum = osloSum;
     currentHaldenSum = haldenSum;
   }
+  function isMobileScreen() {
+    return window.innerWidth <= 768;
+  }
 
   function adjustDivSize(element, value) {
-    const baseSize = 6; // Base size in rem
-    const scaleFactor = 0.0001; // Adjust this factor to control the scaling
+    const baseSize = 6;
+    const scaleFactor = isMobileScreen() ? 0.00005 : 0.00015;
     const newSize = baseSize + value * scaleFactor;
     element.style.width = newSize + "rem";
     element.style.height = newSize + "rem";

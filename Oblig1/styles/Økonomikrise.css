@@ -5,6 +5,12 @@ body {
 }
 
 #bannerContainer {
+  background-image: url("../media/artikkel4/20210901_Drone-kveldsbilde-hoyblokka-5.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
   position: relative;
@@ -20,10 +26,6 @@ body {
 }
 
 .bannerText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: linear-gradient(
     to bottom right,
     rgba(0, 0, 0, 0.7),
@@ -37,11 +39,10 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bannerText:hover {
-  transform: translate(-50%, -50%) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  h2 {
+    font-size: 3rem;
+    margin: 0;
+  }
 }
 
 @keyframes fadeIn {
@@ -51,11 +52,6 @@ body {
   to {
     opacity: 1;
   }
-}
-
-.bannerText h2 {
-  margin: 0;
-  font-size: 2rem;
 }
 
 .bannerText p {
@@ -340,7 +336,7 @@ canvas {
   }
 
   .sum {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .interview-content {
@@ -390,6 +386,7 @@ canvas {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4px;
 }
 
 #videoContainer {
