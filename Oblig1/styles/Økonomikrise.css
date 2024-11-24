@@ -357,6 +357,10 @@ canvas {
   .carousel-control-next {
     right: 30%;
   }
+
+  .video-box {
+    padding: 0;
+  }
 }
 
 #work {
@@ -378,17 +382,28 @@ canvas {
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  width: 100%;
 }
 
 .video-box {
-  background: rgba(126, 126, 126, 0.9);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
 }
 
 .video-box video {
   display: block;
+  width: 100%;
+  height: 500px; /* Fast høyde */
   border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .video-box {
+    padding: 0;
+    max-width: 100%;
+  }
 }
