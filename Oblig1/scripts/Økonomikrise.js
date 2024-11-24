@@ -164,9 +164,19 @@ document.addEventListener("DOMContentLoaded", function () {
       datasets: [
         {
           label: "Gjennomsnittlig Leiepris (NOK)",
-          data: [8000, 8500, 9000, 9500],
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
+          data: [6400, 6400, 6700, 7200],
+          backgroundColor: [
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+          ],
+          borderColor: [
+            "rgba(75, 192, 192, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(75, 192, 192, 1)",
+          ],
           borderWidth: 1,
         },
       ],
@@ -175,6 +185,22 @@ document.addEventListener("DOMContentLoaded", function () {
       scales: {
         y: {
           beginAtZero: true,
+          title: {
+            display: true,
+            text: "Leiepris (NOK)",
+          },
+        },
+        x: {
+          title: {
+            display: true,
+            text: "År",
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: "top",
         },
       },
     },
