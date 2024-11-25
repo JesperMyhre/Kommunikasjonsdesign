@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/nav.css" />
     <link rel="stylesheet" type="text/css" href="./styles/rusEffect.css" />
     <title>Rusproblematikk</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
@@ -157,25 +158,24 @@
             av et ønske om balanse mellom ansvar, helse og rettferdighet i møte
             med rusproblematikk.
           </p>
-
-          <section>
-            <h3>Intervjuer med ?</h3>
-            <article>
-              <h4>Student 1</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                nec odio. Praesent libero. Sed cursus ante dapibus diam.
-              </p>
-            </article>
-            <article>
-              <h4>Student 2</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                nec odio. Praesent libero. Sed cursus ante dapibus diam.
-              </p>
-            </article>
-          </section>
         </article>
+        <section id="chartContainer">
+          <h2>
+            «Ruslidelser blant norske studenter det siste året, 2023
+            SHoT-undersøkelsen»
+          </h2>
+          <p>
+            «Hver tiende mannlige student har eller har hatt alkohollidelser i
+            løpet av det siste året.»
+          </p>
+          <a
+            href=" https://studenthelse.no/presse-og-mediemateriell/bekymringsfulle-funn-om-ruslidelser-blant-norske-studenter/"
+            target="_blank"
+            >Studentenes helse- og trivselsundersøkelse</a
+          >
+          <canvas id="rusbrukChart"></canvas>
+        </section>
+
         <article>
           <h2>Veien videre</h2>
           <p>
@@ -206,6 +206,18 @@
             et nytt og mer støttende samfunnskurs.
           </p>
         </article>
+      </section>
+      <section id="contactSection">
+        <h2>Trenger du hjelp med rusproblemer?</h2>
+
+        <p>RUStelefonen for hjelp og støtte:</p>
+        <p><strong>Telefon: 915 08 588</strong></p>
+        <h3>Hverdager 11:00 – 14:30</h3>
+        <h3>Hverdager 15:00 – 18:00</h3>
+        <a href="https://rusinfo.no/#" target="_blank">Rusinfo</a>
+        <a href="https://www.blakors.no/virksomheter-og-tilbud/" target="_blank"
+          >blå kors</a
+        >
       </section>
     </main>
     <div class="ag-smoke-block">
