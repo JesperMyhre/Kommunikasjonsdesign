@@ -287,10 +287,21 @@ canvas {
   gap: 20px;
 }
 
+.interview-content figure {
+  margin: 0;
+  text-align: center;
+}
+
 .interview-content img {
   max-width: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interview-content figcaption {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 5px;
 }
 
 .interview-content p {
