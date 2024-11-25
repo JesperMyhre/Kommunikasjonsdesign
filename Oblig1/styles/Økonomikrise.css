@@ -45,6 +45,21 @@ body {
   }
 }
 
+#authorInfo-S {
+  img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  p {
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
