@@ -374,6 +374,10 @@ canvas {
     max-width: 250px; /* Juster størrelsen her */
   }
 
+  #intervjuer h2 {
+    font-size: 1.25rem;
+  }
+
   #stipendTableContainer {
     flex-direction: column;
     gap: 10px;
