@@ -5,6 +5,12 @@
   --font-color: #fee715;
   --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   --font: "Ubuntu", "sans-serif";
+  --red-string-color: red;
+  --post-it-color: #ffeb3b;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body,
@@ -13,198 +19,167 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
   font-family: var(--font);
+  color: white;
+  background-color: var(--background-police);
 }
 
 header {
-  height: auto;
   width: 100%;
-  background: var(--gradient);
-  box-shadow: var(--box-shadow);
-  animation: gradientAnimation 5s infinite;
+}
+
+#canvas {
+  position: relative;
+  width: 500vw; /* Larger canvas */
+  height: 500vh; /* Larger canvas */
+}
+
+#connectionPath {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.red-string {
+  position: absolute;
+  width: 2px;
+  background-color: var(--red-string-color);
+  z-index: 1;
 }
 
 #bannerContainer {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  /*   position: relative; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  background-color: var(--background-police);
+  padding: 20px;
 }
 
-/* .photoContext {
+/* .articleSection {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  line-height: normal;
-  opacity: 0.85;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 } */
 
-.textHighlight {
-  font-weight: bold;
-  color: var(--font-color);
-}
-
-a {
-  color: lightblue;
-}
-
-#bannerHeader {
-  color: var(--font-color);
-  width: 60%;
-  /*   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
-  text-align: center;
-  h1 {
-    font-size: 6rem;
-    margin: 0;
-    border-bottom: 5px solid var(--font-color);
-  }
-  h2 {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-  }
-  p {
-    font-weight: bold;
-  }
-}
-
-#content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 100vh;
+.scrollSection {
+  position: absolute;
   width: 100vw;
-  background-color: var(--background-police);
-}
-
-.articleSection {
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
   height: 100vh;
-  width: 60%;
-  max-width: 650px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 1.3;
+  align-items: center;
+  gap: 1rem;
+}
 
+.articleContent {
+  width: 50vw;
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-family: var(--font);
+  font-size: 1.5rem;
+  line-height: 1.5;
   h2 {
-    font-size: 2.5rem;
-    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
-}
-
-#map {
-  width: 900px;
-  height: 700px;
-}
-
-#mapContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  gap: 2rem;
-  padding-top: 5rem;
-  max-width: 800px;
-}
-
-#mapInfoContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 350px;
-  color: white;
-}
-
-.mapInfo {
-  border-bottom: 1px solid white;
-}
-
-#interviewSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 25px;
-  border: 1px solid var(--background-primary);
-  padding: 1rem;
-  width: 90%;
 }
 
 .storyIcon {
-  width: 30%;
-  margin: 1rem auto 0 auto;
+  width: 200px;
 }
 
-#policeStudent {
-  width: 40% !important;
+/* Zig-Zag positioning */
+#containerOne {
+  top: 20%;
+  left: 50%;
 }
 
-.buttonContainer {
+#containerTwo {
+  top: calc(20% + 100vh);
+  left: calc(25% - 100vw);
+}
+
+#mapContainer {
+  top: calc(20% + 200vh);
+  left: calc(25% + 100vw);
+}
+
+#containerThree {
+  top: calc(20% + 300vh);
+  left: calc(25% - 100vw);
+}
+
+#containerFour {
+  top: calc(20% + 400vh);
+  left: calc(25% + 100vw);
+}
+
+#containerFive {
+  top: calc(20% + 500vh);
+  left: calc(25% - 100vw);
+}
+
+#containerSix {
+  top: calc(20% + 600vh);
+  left: calc(25% + 100vw);
+}
+
+#containerSeven {
+  top: calc(20% + 700vh);
+  left: calc(25% - 100vw);
+}
+
+#containerEight {
+  top: calc(20% + 800vh);
+  left: calc(25% + 100vw);
+}
+
+#containerNine {
+  top: calc(20% + 900vh);
+  left: calc(25% - 100vw);
+}
+
+#containerTen {
+  top: calc(20% + 1000vh);
+  left: calc(25% + 100vw);
+}
+
+#mapContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-}
-
-.scrollButton {
-  width: 60px;
-  height: 60px;
-  background-color: var(--background-secondary);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: var(--box-shadow);
-  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 2rem;
+  background-color: var(--background-police);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
 }
 
-.scrollButton:hover {
-  background-color: hsl(0, 0%, 20%);
-}
-
-#upArrow {
-  transform: rotate(180deg);
-}
-
-#topArrow {
-  align-self: center;
-  background-color: var(--background-secondary);
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  margin: 0;
-  cursor: pointer;
-}
-#topArrow:hover {
-  background-color: hsl(0, 0%, 20%);
+#map {
+  width: 50%;
+  height: 80%;
 }
 
 #progressBar {
@@ -251,6 +226,61 @@ nav {
     color: white;
     text-decoration: none;
   }
+}
+
+.red-string {
+  position: absolute;
+  width: 2px;
+  background-color: var(--red-string-color);
+  z-index: 1;
+}
+
+.instructions {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.buttonContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.scrollButton {
+  width: 50px;
+  height: 50px;
+  background-color: var(--background-police);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.scrollButton:hover {
+  background-color: var(--font-color);
+}
+
+#scrollUp {
+  transform: rotate(180deg); /* Adjust the rotation as needed */
 }
 
 /* Media Queries for Responsiveness */
@@ -319,12 +349,5 @@ nav {
   .scrollButton {
     width: 50px;
     height: 50px;
-  }
-
-  .storyIcon {
-    width: 200px;
-  }
-  nav {
-    display: none;
   }
 }
